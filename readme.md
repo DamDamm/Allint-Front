@@ -3,6 +3,7 @@
 Ce repository est le dossier consacré à la partie FRONTEND du projet. Il permet le stockage, partage mais également versionning du code source de l'application. En plus du code, vous aurez également accès à la documentation, aux ressources et au détails de la partie FRONTEND.
 
 Le détail du projet dans sa globalité (documentation, définitions, illustrations) peuvent être consultées dans ici *(lien vers le readmeduprojet)*.
+Le details de la partie BACKEND du projet peuvent être consultés [ici](https://github.com/O-clock-Maya/projet-08-allint-back).
 
 ## Langage & Framework
 
