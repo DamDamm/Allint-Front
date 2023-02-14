@@ -6,6 +6,14 @@ Le détail du projet dans sa globalité *(documentation, définitions, illustrat
 
 Le details de la partie BACKEND du projet peuvent être consultés [ici](https://github.com/O-clock-Maya/projet-08-allint-back).
 
+## Équipe
+
+- Product Owner : [Tatiana R.](https://github.com/Tatiana1981)
+- Lead Dev : [Mathilde K.](https://github.com/MathildeKoucem)
+- Git Master : [Thibaut L.](https://github.com/LordThi)
+- Scrum Master : [Geoffroy P.](https://github.com/Geoffroypoupart)
+- Technical Referent : [Damien V.](https://github.com/DamDamm)
+
 ## Langage & Framework
 
 Langage:
