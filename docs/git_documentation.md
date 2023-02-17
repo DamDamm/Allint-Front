@@ -270,12 +270,14 @@ Voici les credos permettant d'expliquer son intérêt:
 
 Imaginons une meute de 1 loup:  
 
-- 🧔‍♂️ `Jean-Dev Péachpey`, freelanceur de l'extrème.Il vit entre les fuseaux horaires de Paris et de Turcoing, "LinkedIn" et "start-up" sont les terme qu'il utilise le plus. Il commite au gré du vent et aime commencer plein de features à la fois et le concept de branche lui est étranger.
+- 🧔‍♂️ `Jean-Dev Péachpey`, freelanceur de l'extrème. Il vit entre les fuseaux horaires de Paris et de Turcoing, "LinkedIn" et "start-up" sont les termes qu'il utilise le plus. Il commite au gré du vent et aime commencer plein de features à la fois et le concept de branche lui est étranger.
 
 Un jour notre héro décide de créer une fonctionnalité sur un des composant principaux de notre application directement sur la branche principale. Il consulte ChatGPT, copie le code est le colle dans le projet. Tout fonctionne chez lui, ses tests sont au vert ✅ et il part en week-end bien mérité après avoir commit et push comme on lui a appris.
 
-Le lundi, il ouvre github et il constate un grand nombre d'issues sur le projet. Rien qui ne concerne sa partie à première vue mais l'app ne fonctionne plus et tout le monde est sur le pont en mode Cluedo 🕵️‍♂️.  
-On finira par trouver la cause, grace au journal de commit mais l'équipe aura perdu un temps précieux.
+Pendant le week-end, quelques devs récupèrent le code de la branche principale et se basent dessus pour travailler.
+
+Le lundi, Jean-Dev ouvre github et il constate un grand nombre d'issues sur le projet. Rien qui ne concerne sa partie à première vue mais l'app ne fonctionne plus et tout le monde est sur le pont en mode Cluedo 🕵️‍♂️.  
+On finira par trouver la cause, grace au journal de commit, c'était bien le morceau de code de notre cerveau et l'équipe aura perdu un temps précieux.
 </details>
 
 La solution? Créer sa propre branche lorsque l'on va commencer une nouvelle feature.
@@ -289,7 +291,7 @@ Imaginons que chaque boule représente un jour avec le rythme de un commit/push 
 
 - Jean-Dev a créé un branche pour sa nouvelle fonctionnalité et a fait son premier commit sur sa nouvelle branche 🥳. Il pose un RTT, ça fait quand même beaucoup de boulot.
 - Le projet avance sans Jean-Dev, c'est triste pour lui mais bien pour son équipe. Sa fonctionnalité n'avance pas mais le reste du projet oui.
-- Jean-Dev revient de vacances. Son manager a demandé à un développeur plus expérimenté si cette nouvelle feature est utile. Sa réponse était non. Alphone Manager demande donc à Jean-Dev de partir sur une nouvelle fonctionnalité demandée par le client, plus importante. Jean-Dev s'execute et créé une nouvelle branche pour travailler. Le projet stagne en attendant le travail de Jean-Dev qui continue d'avancer sur sa grosse feature.
+- Jean-Dev revient de vacances. Son manager a demandé à un développeur plus expérimenté si sa nouvelle feature était utile. La réponse était non. Alphone Manager demande donc à Jean-Dev de partir sur une nouvelle fonctionnalité demandée par le client, plus importante. Jean-Dev s'execute et créé une nouvelle branche pour travailler. Le projet stagne en attendant le travail de Jean-Dev qui continue d'avancer sur sa grosse feature.
 
 La branche `Main` est constament préservée
 
@@ -302,7 +304,7 @@ Imaginons une meute de 2 loups:
 
 - 👨‍🦱 `Doug Enghulard`, collectionneur aguerri de claviers mécaniques qu'il apprécit particulièrement pour leur facilité à casser les bonbons de ses collègues dans l'open space. Certains jours où le temps est clair, il parvient même à déranger des employés d'autres services.
 
-- 🧔‍♂️ `Jean-Dev Péachpey`, il a tendance à se voir comme une meute d'un seul loup. Mais quand son manager a ammené Doug à dans l'open space, il a senti qu'ils étaient proches, et sa meute d'un loup est devenue une meute de deux loups, et donc ils étaient deux loups... ils étaient deux loups dans la meute. Avant il était... il était seul dans la meute, et puis Doug l'a rejoint ensuite.
+- 🧔‍♂️ `Jean-Dev Péachpey`, il avait tendance à se voir comme une meute d'un seul loup. Mais quand son manager a ammené Doug dans l'open space, il a senti qu'ils étaient proches, et sa meute d'un loup est devenue une meute de deux loups, et donc ils étaient deux loups... ils étaient deux loups dans la meute. Avant il était... il était seul dans la meute, et puis Doug l'a rejoint ensuite.
 
 Jean-Dev et Doug codaient en même temps sur le même morceau de projet et sur la branche principale.  
 Au moment de commit, si nos deux génies n'ont pas écrit aux mêmes endroits ou n'ont pas utilisés les mêmes noms de fonction ou de variable, alors git sera capable de fusionner (*merge*) le code. Si ce n'est pas le cas, il y aura un conflit et il faudra décider quelle partie du code sera la plus pertinente et en cohérence avec le reste du projet. Rien de dramatique mais du temps facilement dispensable.
