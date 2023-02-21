@@ -51,7 +51,7 @@
   "dependencies": {
     "prop-types": "*",
     "react": "*",
-    "react-dom": "*"
-  },
-  "packageManager": "yarn@3.3.0"
+    "react-dom": "*",
+    "react-router-dom": "^6.8.1"
+  }
 }
