@@ -52,5 +52,6 @@
     "prop-types": "*",
     "react": "*",
     "react-dom": "*"
-  }
+  },
+  "packageManager": "yarn@3.3.0"
 }
