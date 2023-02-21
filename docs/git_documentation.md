@@ -52,7 +52,7 @@ Les commandes suivantes auront un résultat différent en fonction de l'endroit 
 <br>
 
 Soit l'arborescence suivante:  
-![arborescence](img_git_doc/repositories.png)  
+![arborescence](./img_git_doc/repositories.png)  
 
 Si je vois dans ma console:  
 ![repofront](./img_git_doc/repo_repo-front.png)  
