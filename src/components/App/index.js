@@ -2,6 +2,15 @@
 import reactLogo from './react-logo.svg';
 import './styles.css';
 
+//Components
+import Home from 'src/components/Home';
+import Product from 'src/components/Product';
+import Profil from 'src/components/Profil';
+import Results from 'src/components/Results';
+import MentionsLegales from '../MentionsLegales';
+import Error from '../Error';
+
+
 // == Composant
 function App() {
   return (
