@@ -6,18 +6,23 @@ import './styles.css';
 import Home from 'src/components/Home';
 import Header from '../Header';
 import Product from 'src/components/Product';
-import Profil from 'src/components/Profil';
+import Search from 'src/components/Search';
 import Results from 'src/components/Results';
 import Footer from '../Footer';
-import MentionsLegales from '../MentionsLegales';
 import Error from '../Error';
+
 
 
 // == App
 function App() {
   return (
     <div className="app">
-      
+      <Header />
+      <Search />
+      <Results />
+      <Product />
+      <Footer />
+
     </div>
   );
 }
