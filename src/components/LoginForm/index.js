@@ -1,15 +1,19 @@
+import usersData from 'src/data/MOCK_users.json'
+import Login from "./Login";
+import Password from "./Password";
+
 const LoginForm = () => {
     return (
         <div>
-            <form>
-                <input type="text" id="emailLogin" name="Email"/>
+                <Login />
                 
-                <input type="text" id="passwordLogin" name="Mot de passe"/>
+                <Password/>
 
                 <input type="submit" value="Connexion"/>
-            </form>
         </div>
     )
 }
+
+
 
 export default LoginForm;

@@ -10,19 +10,20 @@ import Search from 'src/components/Search';
 import Results from 'src/components/Results';
 import Footer from '../Footer';
 import Error from '../Error';
-
+import LoginForm from '../LoginForm';
 
 
 // == App
 function App() {
   return (
     <div className="app">
+      
       <Header />
       <Search />
       <Results />
       <Product />
       <Footer />
-      
+      <LoginForm />
 
     </div>
   );
