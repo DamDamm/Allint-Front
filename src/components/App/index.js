@@ -22,6 +22,7 @@ function App() {
       <Results />
       <Product />
       <Footer />
+      
 
     </div>
   );

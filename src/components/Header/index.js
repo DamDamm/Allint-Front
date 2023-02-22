@@ -1,11 +1,13 @@
 const Header = () => {
     return (
-        <div>
+        <header classname="header">
             <img />
-            <button> Profil </button>
-            <button> Connexion </button>
-            <button> Deconnexion </button>
-        </div>
+            <div classname="user">
+                <button> Profil </button>
+                <button> Connexion </button>
+                <button> Deconnexion </button>
+            </div>
+        </header>
     )
 };
 
