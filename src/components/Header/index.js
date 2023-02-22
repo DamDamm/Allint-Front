@@ -1,8 +1,8 @@
 const Header = () => {
     return (
-        <header classname="header">
+        <header className="header">
             <img />
-            <div classname="user">
+            <div className="user">
                 <button> Profil </button>
                 <button> Connexion </button>
                 <button> Deconnexion </button>
