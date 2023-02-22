@@ -25,13 +25,14 @@ function App() {
   const [zipcode, setZipcode] = useState('');
   const [city, setCity] = useState('');
 
-console.log(`email = ${email}`)
-console.log(`password = ${password}`)
-console.log(`name = ${name}`)
-console.log(`lastname = ${lastname}`)
-console.log(`adress = ${adress}`)
-console.log(`zipcode = ${zipcode}`)
-console.log(`city = ${city}`)
+// controlled inputs control
+  // console.log(`email = ${email}`)
+  // console.log(`password = ${password}`)
+  // console.log(`name = ${name}`)
+  // console.log(`lastname = ${lastname}`)
+  // console.log(`adress = ${adress}`)
+  // console.log(`zipcode = ${zipcode}`)
+  // console.log(`city = ${city}`)
 
 const handleEmailChangeField = (event) => {
   setEmail(event.target.value);
