@@ -1,12 +1,15 @@
+import ProfilPage from "./Profil";
+import Connexion from "./Connexion";
+import Deconnexion from "./Deconnexion";
+
+
 const Header = () => {
     return (
         <header className="header">
             <img />
-            <div className="user">
-                <button> Profil </button>
-                <button> Connexion </button>
-                <button> Deconnexion </button>
-            </div>
+             <ProfilPage /> 
+             <Connexion /> 
+             <Deconnexion /> 
         </header>
     )
 };
