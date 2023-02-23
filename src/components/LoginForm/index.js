@@ -21,7 +21,7 @@ const LoginForm = ({ isLogged }) => {
   // Function when submit form
   const handleSubmit = (event) => {
     event.preventDefault();
-    const user = usersData.find((user) => user.email === login); // Search user with Email
+    const user = usersData.find((u) => u.email === login); // Search user with Email
     if (user && user.password === password) { // Check if password is great
       console.log('Connexion réussie');
     } else {
