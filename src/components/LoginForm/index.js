@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
+import 'src/LoginForm/style.scss';
+
 import usersData from 'src/data/MOCK_users.json';
 
 const LoginForm = ({ isLogged }) => { 
 
-  //Stock login and password in the state
+  //Stock login, password and connexion result in the state
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [resultConnexion, setResultConnexion] = useState('');
