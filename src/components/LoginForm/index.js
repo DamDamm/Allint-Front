@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-import 'src/LoginForm/style.scss';
-
 import usersData from 'src/data/MOCK_users.json';
 
 const LoginForm = ({ isLogged }) => { 
