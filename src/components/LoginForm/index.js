@@ -7,7 +7,9 @@ const LoginForm = ({ isLogged }) => {
 
   //Stock login and password in the state
   const [login, setLogin] = useState('');
-  const [password, setPassword] = useState(''); 
+  const [password, setPassword] = useState('');
+  const [resultConnexion, setResultConnexion] = useState('');
+ 
 
   //Update when the state (email or password) change
   const handleChange = (event) => {
@@ -23,9 +25,9 @@ const LoginForm = ({ isLogged }) => {
     event.preventDefault();
     const user = usersData.find((u) => u.email === login); // Search user with Email
     if (user && user.password === password) { // Check if password is great
-      console.log('Connexion réussie');
+      setResultConnexion('Connexion réussie');
     } else {
-      console.log('Email ou mot de passe incorrect');
+      setResultConnexion('Email ou Mot de Passe invalide');
     }
   };
 
@@ -50,9 +52,12 @@ const LoginForm = ({ isLogged }) => {
             onChange={handleChange}
           />
           <input type="submit" value="Connexion" />
+
+          <p> {resultConnexion} </p>
         </form>
+
       ) : (
-        <p>Veuillez vous connecter pour accéder à cette page.</p>
+        <p> Veuillez vous connecter </p>
       )}
     </div>
   );
