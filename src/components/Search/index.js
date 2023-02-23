@@ -12,12 +12,13 @@ const Search = () => {
   
 
   const handleChange = (event) => {
-    setProduct(event.target.value);
+    setProduct(event.target.value)
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log({product})
-} 
+  };
 
     return (
         <div>
@@ -28,13 +29,13 @@ const Search = () => {
         <CategoryInput /> */}
         <ProductInput 
         handleChange={handleChange}
-        product={product} 
+        product={product}
         />
 
         <button type="submit"> Rechercher </button>
         </form>
         </div>
     )
-}};
+};
 
 export default Search;
