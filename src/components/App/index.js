@@ -31,6 +31,7 @@ const App = () => {
   // console.log(`adress = ${adress}`)
   // console.log(`zipcode = ${zipcode}`)
   // console.log(`city = ${city}`)
+  // console.log(`allergies: ${allergyChoice}`);
 
   const handleEmailChangeField = (event) => {
     setEmail(event.target.value);
@@ -71,7 +72,11 @@ const App = () => {
       setAllergyChoice(allergyChoice.filter((allergy) => allergy !== allergyName));
     }
   };
-  console.log(`allergies: ${allergyChoice}`);
+
+  const handleSubmitClick = (event) => {
+    event.preventDefault();
+    // Fonction d'envoi des données au BACKEND (POST ou UPDATE)
+  };
 
   return (
     <div className="app">
@@ -91,6 +96,7 @@ const App = () => {
         zipcodeChangeField={handleZipcodeChangeField}
         cityChangeField={handleCityChangeField}
         checkChangeOnClick={handleCheckChangeOnClick}
+        handleClick={handleSubmitClick}
       />
       {/* <Header />
       <Search />

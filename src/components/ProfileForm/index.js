@@ -1,4 +1,4 @@
-import { string, func, bool } from 'prop-types';
+import { string, func } from 'prop-types';
 import Allergy from '../Allergy';
 import Field from './Field';
 import './styles.scss';
@@ -19,6 +19,7 @@ const ProfileForm = ({
   zipcodeChangeField,
   cityChangeField,
   checkChangeOnClick,
+  handleClick,
 
 }) => (
   <div>
@@ -75,6 +76,7 @@ const ProfileForm = ({
       <Allergy
         hundleClick={checkChangeOnClick}
       />
+      <button onClick={handleClick} type="submit">Enregistrer</button>
     </form>
   </div>
 );
@@ -95,6 +97,7 @@ ProfileForm.propTypes = {
   zipcodeChangeField: func.isRequired,
   cityChangeField: func.isRequired,
   checkChangeOnClick: func.isRequired,
+  handleClick: func.isRequired,
 };
 
 export default ProfileForm;
