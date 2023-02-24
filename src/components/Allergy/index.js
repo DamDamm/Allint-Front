@@ -1,12 +1,20 @@
+import allergyData from '../../data/MOCK_allergy.json';
+
 const Allergy = () => (
+
   <div>
     <form>
-      <input type="checkbox" value="Allergies 1" id="AllergyCheckbox" />
-      <input type="checkbox" />
-      <input type="checkbox" />
-      <input type="checkbox" />
+      {
+        allergyData.map((allergy) => (
+          <>
+            <input key={allergy.id} type="checkbox" name={allergy.name} />
+            <label htmlFor={allergy.id}>{allergy.name}</label>
+          </>
+        ))
+      }
     </form>
   </div>
+
 );
 
 export default Allergy;

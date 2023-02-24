@@ -1,4 +1,5 @@
 import { string, func } from 'prop-types';
+import Allergy from '../Allergy';
 import Field from './Field';
 import './styles.scss';
 
@@ -69,6 +70,7 @@ const ProfileForm = ({
         onChange={cityChangeField}
         value={city}
       />
+      <Allergy />
     </form>
   </div>
 );
