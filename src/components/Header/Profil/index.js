@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 
-const ProfilPage = () => {
+const ProfilPage = (logged) => {
+
     return (
         <Link to ='/profil'>
-        <button> Profil </button>
+        {logged && <button> Profil </button>}
         </Link>
     )
 }

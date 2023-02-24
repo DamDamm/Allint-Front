@@ -3,9 +3,10 @@ import { useState } from 'react';
 
 import usersData from 'src/data/MOCK_users.json';
 
-const LoginForm = ({ isLogged }) => { 
+const LoginForm = ({ isLogged, changeAppStatus }) => { 
 
   //Stock login, password and connexion result in the state
+  // const [isLogged, setIsLogged] = useState(false);
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [resultConnexion, setResultConnexion] = useState('');
@@ -21,19 +22,27 @@ const LoginForm = ({ isLogged }) => {
   };
 
   // Function when submit form
+  const changeStatus = () => {
+    changeAppStatus();
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     const user = usersData.find((u) => u.email === login); // Search user with Email
     if (user && user.password === password) { // Check if password is great
       setResultConnexion('Connexion réussie');
+      // setIsLogged(true);
+      changeStatus();
     } else {
       setResultConnexion('Email ou Mot de Passe invalide');
     }
   };
+ 
+  const connected = isLogged;
+  console.log(connected);
 
   return (
     <div>
-      {!isLogged ? (
+      {!connected && (
         <form className="form" onSubmit={handleSubmit}>
           <label>Entrez votre Email</label>
           <input
@@ -56,16 +65,14 @@ const LoginForm = ({ isLogged }) => {
           <p> {resultConnexion} </p>
         </form>
 
-      ) : (
-        <p> Veuillez vous connecter </p>
       )}
     </div>
   );
 };
 
-LoginForm.propTypes = {
+ LoginForm.propTypes = {
   isLogged: PropTypes.bool, 
-};
+ };
 
 
 export default LoginForm;

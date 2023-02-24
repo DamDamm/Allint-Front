@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
-const Deconnexion = () => {
+const Deconnexion = (isLogged) => {
     return (
         <Link to ='/'>
-        <button> Deconnexion </button>
+        {isLogged && <button> Deconnexion </button>}
         </Link>
     )
 }

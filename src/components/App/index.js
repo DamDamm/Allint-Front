@@ -1,6 +1,7 @@
 // == Import
 import reactLogo from './react-logo.svg';
 import './styles.css';
+import { useState } from 'react';
 
 
 
@@ -17,7 +18,14 @@ import LoginForm from '../LoginForm';
       
 
 // == App
-function App() {
+const App = () => {
+
+  const [isLoggedInApp, setIsLoggedInApp] = useState(false);
+  const userConnected = () => {
+    setIsLoggedInApp(true)
+  }
+  console.log(isLoggedInApp)
+
   return (
     <div className="app">
       
@@ -26,7 +34,7 @@ function App() {
       <Results />
       <Product />
       <Footer /> 
-      <LoginForm />
+      <LoginForm isLogged={isLoggedInApp} changeAppStatus={userConnected}/>
 
     </div>
   );

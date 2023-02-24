@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 
-const Connexion = () => {
+
+const Connexion = (Logged) => {
    return (
         <Link to ='/connexion'>
-        <button> Connexion </button>
+        {!Logged && <button> Connexion </button>}
         </Link>
     )
 }
