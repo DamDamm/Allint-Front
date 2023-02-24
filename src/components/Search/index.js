@@ -7,12 +7,10 @@ import CategoryInput from "./CategoryInput";
 import productData from "../../data/MOCK_products.json"
 import { element } from 'prop-types';
 
-
-
 const Search = () => {
   const [product, setProduct] = useState('');
   
-
+  const findProduct = () => {console.log(productData.find(el => element.value==product.value))};
 
   const handleChange = (event) => {
     setProduct(event.target.value)
@@ -21,7 +19,7 @@ const Search = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log({product})
-    findProduct = productData.find(element==product);
+    findProduct();
     console.log(element)
   };
 

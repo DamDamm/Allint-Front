@@ -19,7 +19,8 @@ const ProductInput = ({handleChange, product}) => {
 };
 
 ProductInput.propTypes = {
-  handleChange: func.isRequired
+  handleChange: func.isRequired,
+  product: string.isRequired
 }
 
 export default ProductInput;
