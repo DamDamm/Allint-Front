@@ -1,18 +1,14 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 
-const Profil = ( {isLogged} ) => {
+//We get the Header props and pass it in the Profil
+const Profil = ({isLogged}) => {
 
     return (
         <Link to ='/profil'>
-        {isLogged && <button> Profil </button>}
+        {isLogged && <button> Profil </button> /* if user connected, the button appears  */}
         </Link>
     )
 }
-
-    Profil.propTypes = {
-    isLogged: PropTypes.bool, 
-    changeAppStatus: PropTypes.func,
-   };
 
 export default Profil;
