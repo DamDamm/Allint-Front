@@ -21,6 +21,7 @@ const App = () => {
   const [adress, setAdress] = useState('');
   const [zipcode, setZipcode] = useState('');
   const [city, setCity] = useState('');
+  const [allergyChoice, setAllergyChoice] = useState([]);
 
   // controlled inputs control
   // console.log(`email = ${email}`);
@@ -59,6 +60,19 @@ const App = () => {
     setCity(event.target.value);
   };
 
+  const handleCheckChangeOnClick = (event) => {
+    const allergyName = event.target.name;
+    const isChecked = event.target.checked;
+
+    if (isChecked) {
+      setAllergyChoice([...allergyChoice, allergyName]);
+    }
+    else {
+      setAllergyChoice(allergyChoice.filter((allergy) => allergy !== allergyName));
+    }
+  };
+  console.log(`allergies: ${allergyChoice}`);
+
   return (
     <div className="app">
       <ProfileForm
@@ -76,6 +90,7 @@ const App = () => {
         adressChangeField={handleAdressChangeField}
         zipcodeChangeField={handleZipcodeChangeField}
         cityChangeField={handleCityChangeField}
+        checkChangeOnClick={handleCheckChangeOnClick}
       />
       {/* <Header />
       <Search />
