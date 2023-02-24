@@ -1,12 +1,18 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 
-const ProfilPage = (logged) => {
+const Profil = ( {isLogged} ) => {
 
     return (
         <Link to ='/profil'>
-        {logged && <button> Profil </button>}
+        {isLogged && <button> Profil </button>}
         </Link>
     )
 }
 
-export default ProfilPage;
+    Profil.propTypes = {
+    isLogged: PropTypes.bool, 
+    changeAppStatus: PropTypes.func,
+   };
+
+export default Profil;

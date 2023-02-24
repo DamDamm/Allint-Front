@@ -39,7 +39,7 @@ const LoginForm = ({ isLogged, changeAppStatus }) => {
   };
  
   const connected = isLogged; // Stock the authentication props in a variable
-  console.log(connected);
+  
 
   return (
     <div>

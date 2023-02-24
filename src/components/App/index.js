@@ -29,12 +29,12 @@ const App = () => {
   return (
     <div className="app">
       
-      <Header />
+      <Header isLogged={isLoggedInApp} changeAppStatus={userConnected}/>
       <Search />
       <Results />
       <Product />
       <Footer /> 
-      <LoginForm isLogged={isLoggedInApp} changeAppStatus={userConnected}  /* Display LoginForm Component with isLogged and changeAppStatus props*//> 
+      <LoginForm isLogged={isLoggedInApp} changeAppStatus={userConnected} />
     
     </div>
   );

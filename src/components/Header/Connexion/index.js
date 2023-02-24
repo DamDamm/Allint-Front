@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 
+//We get the Header props and pass it in the Connexion
+const Connexion = ({isLogged}) => {
+    
 
-const Connexion = (Logged) => {
    return (
         <Link to ='/connexion'>
-        {!Logged && <button> Connexion </button>}
+        {!isLogged && <button> Connexion </button> /* if user deconnected, the button appears  */}
         </Link>
     )
 }
