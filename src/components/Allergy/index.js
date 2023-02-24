@@ -1,20 +1,29 @@
+import { func } from 'prop-types';
 import allergyData from '../../data/MOCK_allergy.json';
 
-const Allergy = () => (
+const Allergy = ({ hundleClick }) => (
 
   <div>
-    <form>
-      {
+
+    {
         allergyData.map((allergy) => (
-          <>
-            <input key={allergy.id} type="checkbox" name={allergy.name} />
-            <label htmlFor={allergy.id}>{allergy.name}</label>
-          </>
+          <div key={allergy.id}>
+            <input
+              type="checkbox"
+              name={allergy.name}
+              onChange={hundleClick}
+            />
+            <label htmlFor={allergy.name}>{allergy.name}</label>
+          </div>
         ))
       }
-    </form>
+
   </div>
 
 );
 
 export default Allergy;
+
+Allergy.propTypes = {
+  hundleClick: func.isRequired,
+};
