@@ -6,7 +6,7 @@ const Profil = ({isLogged}) => {
 
     return (
         <Link to ='/profil'>
-        {isLogged && <button> Profil </button> /* if user connected, the button appears  */}
+        {isLogged && <button> Profil </button> /* if user connected, the profil button appears  */}
         </Link>
     )
 }

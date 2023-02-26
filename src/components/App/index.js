@@ -20,16 +20,23 @@ import LoginForm from '../LoginForm';
 // == App
 const App = () => {
 
-  const [isLoggedInApp, setIsLoggedInApp] = useState(false); // Initialize isLoggedInApp to False. (User disconnected when he arrives on the app)
+  const [isLoggedInApp, setIsLoggedInApp] = useState(); // Initialize isLoggedInApp to False. (User disconnected when he arrives on the app)
+
   const userConnected = () => {
     setIsLoggedInApp(true) // Update isLoggedInApp in true when user connected
   }
-  console.log(isLoggedInApp)
+
+  const userDisconnected = () => {
+    setIsLoggedInApp(false) // Update isLoggedInApp in true when user disconnected
+  };
+
+  console.log(isLoggedInApp);
+
 
   return (
     <div className="app">
       
-      <Header isLogged={isLoggedInApp} changeAppStatus={userConnected}/>
+      <Header isLogged={isLoggedInApp} changeAppStatus={userConnected} isDisconnected={userDisconnected}/>
       <Search />
       <Results />
       <Product />
