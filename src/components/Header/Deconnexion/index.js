@@ -11,4 +11,9 @@ const Deconnexion = ( {isLogged, isDisconnected} ) => {
     )
 }
 
+Deconnexion.propTypes = {
+    isLogged: PropTypes.bool, 
+    isDisConnected: PropTypes.func,
+   };
+
 export default Deconnexion;

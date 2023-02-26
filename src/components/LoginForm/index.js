@@ -4,7 +4,7 @@ import { useState } from 'react';
 import usersData from 'src/data/MOCK_users.json';
 
 
-const LoginForm = ({ isLogged, changeAppStatus }) => { 
+const LoginForm = ({ isLogged, isConnected }) => { 
 
   //Stock login, password and connexion result in the state
   const [login, setLogin] = useState('');
@@ -23,7 +23,7 @@ const LoginForm = ({ isLogged, changeAppStatus }) => {
 
  
   const changeStatus = () => {
-    changeAppStatus();
+    isConnected();
   };
 
  // Function when submit form
@@ -32,7 +32,7 @@ const LoginForm = ({ isLogged, changeAppStatus }) => {
     const user = usersData.find((u) => u.email === login); // Search user with Email
     if (user && user.password === password) { // Check if password is great
       setResultConnexion('Connexion réussie');
-      changeStatus(); //Call the changeAppStatus function to change the global authentication status
+      changeStatus(); //Call the isConnected function to change the global authentication status
     } else {
       setResultConnexion('Email ou Mot de Passe invalide');
     }
@@ -62,10 +62,8 @@ const LoginForm = ({ isLogged, changeAppStatus }) => {
             onChange={handleChange}
           />
           <input type="submit" value="Connexion" />
-
           <p> {resultConnexion} </p>
         </form>
-
       )}
     </div>
   );
@@ -73,7 +71,7 @@ const LoginForm = ({ isLogged, changeAppStatus }) => {
 
  LoginForm.propTypes = {
   isLogged: PropTypes.bool, 
-  changeAppStatus: PropTypes.func,
+  isConnected: PropTypes.func,
  };
 
 

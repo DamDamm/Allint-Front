@@ -36,12 +36,12 @@ const App = () => {
   return (
     <div className="app">
       
-      <Header isLogged={isLoggedInApp} changeAppStatus={userConnected} isDisconnected={userDisconnected}/>
+      <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
       <Search />
       <Results />
       <Product />
       <Footer /> 
-      <LoginForm isLogged={isLoggedInApp} changeAppStatus={userConnected} />
+      <LoginForm isLogged={isLoggedInApp} isConnected={userConnected} />
     
     </div>
   );
