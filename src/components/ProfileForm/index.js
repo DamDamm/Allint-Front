@@ -1,102 +1,121 @@
-import { string, func } from 'prop-types';
+import { useState } from 'react';
+import { func } from 'prop-types';
 import Allergy from '../Allergy';
 import Field from './Field';
 import './styles.scss';
 
-const ProfileForm = ({
-  email,
-  password,
-  name,
-  lastname,
-  adress,
-  zipcode,
-  city,
-  emailChangeField,
-  passwordChangeField,
-  nameChangeField,
-  lastnameChangeField,
-  adressChangeField,
-  zipcodeChangeField,
-  cityChangeField,
-  checkChangeOnClick,
-  handleClick,
+const ProfileForm = ({ handleClick }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [adress, setAdress] = useState('');
+  const [zipcode, setZipcode] = useState('');
+  const [city, setCity] = useState('');
+  const [allergyChoice, setAllergyChoice] = useState([]);
 
-}) => (
-  <div>
-    <form>
-      <Field
-        name="name"
-        type="name"
-        placeholder="Prénom"
-        onChange={nameChangeField}
-        value={name}
-      />
-      <Field
-        name="lastname"
-        type="lastname"
-        placeholder="Nom"
-        onChange={lastnameChangeField}
-        value={lastname}
-      />
-      <Field
-        name="email"
-        type="email"
-        placeholder="Adresse Email"
-        onChange={emailChangeField}
-        value={email}
-      />
-      <Field
-        name="password"
-        type="password"
-        placeholder="Mot de passe"
-        onChange={passwordChangeField}
-        value={password}
-      />
-      <Field
-        name="adress"
-        type="adress"
-        placeholder="Adresse"
-        onChange={adressChangeField}
-        value={adress}
-      />
-      <Field
-        name="zipcode"
-        type="zipcode"
-        placeholder="Code Postal"
-        onChange={zipcodeChangeField}
-        value={zipcode}
-      />
-      <Field
-        name="city"
-        type="city"
-        placeholder="Ville"
-        onChange={cityChangeField}
-        value={city}
-      />
-      <Allergy
-        hundleClick={checkChangeOnClick}
-      />
-      <button onClick={handleClick} type="submit">Enregistrer</button>
-    </form>
-  </div>
-);
+  const handleEmailChangeField = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChangeField = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleNameChangeField = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleLastnameChangeField = (event) => {
+    setLastname(event.target.value);
+  };
+
+  const handleAdressChangeField = (event) => {
+    setAdress(event.target.value);
+  };
+
+  const handleZipcodeChangeField = (event) => {
+    setZipcode(event.target.value);
+  };
+
+  const handleCityChangeField = (event) => {
+    setCity(event.target.value);
+  };
+
+  const handleCheckChangeOnClick = (event) => {
+    const allergyName = event.target.name;
+    const isChecked = event.target.checked;
+
+    if (isChecked) {
+      setAllergyChoice([...allergyChoice, allergyName]);
+    }
+    else {
+      setAllergyChoice(allergyChoice.filter((allergy) => allergy !== allergyName));
+    }
+  };
+
+  return (
+    <div>
+      <form>
+        <Field
+          name="name"
+          type="name"
+          placeholder="Prénom"
+          onChange={handleNameChangeField}
+          value={name}
+        />
+        <Field
+          name="lastname"
+          type="lastname"
+          placeholder="Nom"
+          onChange={handleLastnameChangeField}
+          value={lastname}
+        />
+        <Field
+          name="email"
+          type="email"
+          placeholder="Adresse Email"
+          onChange={handleEmailChangeField}
+          value={email}
+        />
+        <Field
+          name="password"
+          type="password"
+          placeholder="Mot de passe"
+          onChange={handlePasswordChangeField}
+          value={password}
+        />
+        <Field
+          name="adress"
+          type="adress"
+          placeholder="Adresse"
+          onChange={handleAdressChangeField}
+          value={adress}
+        />
+        <Field
+          name="zipcode"
+          type="zipcode"
+          placeholder="Code Postal"
+          onChange={handleZipcodeChangeField}
+          value={zipcode}
+        />
+        <Field
+          name="city"
+          type="city"
+          placeholder="Ville"
+          onChange={handleCityChangeField}
+          value={city}
+        />
+        <Allergy
+          hundleClick={handleCheckChangeOnClick}
+        />
+        <button onClick={handleClick} type="submit">Enregistrer</button>
+      </form>
+    </div>
+  );
+};
 
 ProfileForm.propTypes = {
-  email: string.isRequired,
-  password: string.isRequired,
-  name: string.isRequired,
-  lastname: string.isRequired,
-  adress: string.isRequired,
-  zipcode: string.isRequired,
-  city: string.isRequired,
-  emailChangeField: func.isRequired,
-  passwordChangeField: func.isRequired,
-  nameChangeField: func.isRequired,
-  lastnameChangeField: func.isRequired,
-  adressChangeField: func.isRequired,
-  zipcodeChangeField: func.isRequired,
-  cityChangeField: func.isRequired,
-  checkChangeOnClick: func.isRequired,
   handleClick: func.isRequired,
 };
 

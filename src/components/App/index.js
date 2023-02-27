@@ -44,10 +44,6 @@ function App() {
       <Results 
       productResult={productResult} />
       <Product />
-      <Footer /> 
-      <LoginForm isLogged={isLoggedInApp} isConnected={userConnected} />
-      <ProfileForm />
-      <Profil />
     </div>
   );
 }
