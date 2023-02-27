@@ -4,22 +4,19 @@ import AllergyInput from "./AllergyInput";
 import BrandInput from "./BrandInput";
 import ProductInput from "./ProductInput";
 import CategoryInput from "./CategoryInput";
+import Results from "../Results"
 import productData from "../../data/MOCK_products.json"
-import { element, elementType } from 'prop-types';
 
-const Search = () => {
-  const [product, setProduct] = useState('');
+const Search = ({product, setProduct, productResult, setProductResult}) => {
   
-  
-
   const handleChange = (event) => {
-    setProduct(event.target.value) 
+    setProduct(event.target.value)  // set state to selected product
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({product})
-    console.log(productData.find(el => el.name === product))
+    console.log({product});
+    setProductResult(productData.find(el => el.name === product)); // find the corresponding product in the json array
   };
 
     return (
@@ -33,6 +30,7 @@ const Search = () => {
         handleChange={handleChange}
         product={product}
         />
+
 
         <button type="submit"> Rechercher </button>
         </form>

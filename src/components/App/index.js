@@ -16,11 +16,20 @@ import Error from '../Error';
 
 // == App
 function App() {
+
+  const [product, setProduct] = useState('');
+  const [productResult, setProductResult] = useState('');
+
   return (
     <div className="app">
       <Header />
-      <Search />
-      <Results />
+      <Search 
+      product={product}
+      setProduct={setProduct}
+      productResult={productResult}
+      setProductResult={setProductResult}/>
+      <Results 
+      productResult={productResult} />
       <Product />
       <Footer />
       

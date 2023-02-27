@@ -1,12 +1,19 @@
-const Results = () => {
-    return(
+import productData from "../../data/MOCK_products.json";
+
+
+const Results = ({productResult}) => {
+  
+  return (
     <div>
         <h3>Résultats</h3>
         <ul>
-            <li>Résultat 1</li>
-            <li>Résultat 2</li>
-            <li>Résultat 3</li>
-            <li>Résultat 4</li>
+            <li>
+              <img src={productResult.product_picture}></img>
+              <p>{productResult.name}</p>
+              <p>{productResult.category}</p>
+              <p>{productResult.brand}</p>
+              <p>{productResult.ingredients}</p>
+            </li>
         </ul>
     </div>
     )   
