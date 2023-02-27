@@ -16,6 +16,11 @@ import Error from '../Error';
 import ProfileForm from '../ProfileForm';
 import LoginForm from '../LoginForm';
 import Profil from '../Profil';
+import MentionsLegales from '../MentionsLegales';
+import Apropos from '../Apropos';
+import Cgu from '../cgu';
+
+import { Routes, Route } from 'react-router-dom';
 
 
 
@@ -37,15 +42,21 @@ const App = () => {
 
   return (
     <div className="app">
-      
+
       <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
-      <Search />
-      <Results />
-      <Product />
-      <Footer /> 
-      <LoginForm isLogged={isLoggedInApp} isConnected={userConnected} />
-      <ProfileForm />
-      <Profil />
+        <Routes >
+          <Route exact path='/' element={<> <Search/><Results/> </>}/>
+          <Route exact path='/connexion' element={<> <LoginForm isLogged={isLoggedInApp} isConnected={userConnected}/><ProfileForm /> </>} />
+          <Route exact path='/profil' element={<Profil />} />
+          <Route exact path='/product/:id' element={<Product />} />
+          <Route exact path='/*' element={<Error />} />
+          <Route exact path ='/mentionslegales' element={<MentionsLegales/>} />
+          <Route exact path ='/apropos' element={<Apropos/>} />
+          <Route exact path ='/cgu' element={<Cgu/>} />
+
+        </Routes>
+      <Footer/>
+
     </div>
   );
 }
