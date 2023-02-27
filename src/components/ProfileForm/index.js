@@ -54,6 +54,15 @@ const ProfileForm = ({ handleClick }) => {
     }
   };
 
+
+  const handleSubmitClick = (event) => {
+    event.preventDefault();
+    navigate('/');
+    console.log(event);
+    // Fonction d'envoi des données au BACKEND (POST ou UPDATE)
+  };
+
+
   return (
     <div>
       <form>
@@ -109,7 +118,9 @@ const ProfileForm = ({ handleClick }) => {
         <Allergy
           hundleClick={handleCheckChangeOnClick}
         />
-        <button onClick={handleClick} type="submit">Enregistrer</button>
+
+        <input onSubmit={handleSubmitClick} type="submit" value="Enregistrer" />
+
       </form>
     </div>
   );

@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import usersData from 'src/data/MOCK_users.json';
 
-
 const LoginForm = ({ isLogged, isConnected }) => { 
+
+  const navigate = useNavigate();
 
   //Stock login, password and connexion result in the state
   const [login, setLogin] = useState('');
@@ -28,6 +30,7 @@ const LoginForm = ({ isLogged, isConnected }) => {
     if (user && user.password === password) { // Check if password is great
       setResultConnexion('Connexion réussie');
       isConnected(); //Call the isConnected function to change the global authentication status
+      navigate('/'); //When the user is logged in, he is redirected to the home page
     } else {
       setResultConnexion('Email ou Mot de Passe invalide');
     }
