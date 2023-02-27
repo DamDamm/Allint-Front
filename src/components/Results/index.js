@@ -1,6 +1,3 @@
-import productData from "../../data/MOCK_products.json";
-
-
 const Results = ({productResult}) => {
   
   return (

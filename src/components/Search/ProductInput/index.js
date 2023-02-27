@@ -1,3 +1,4 @@
+// == Import
 import productData from '../../../data/MOCK_products.json';
 import React from 'react';
 import { func, string } from 'prop-types';
@@ -5,7 +6,6 @@ import { func, string } from 'prop-types';
 const ProductInput = ({handleChange, product}) => {
     
     return (
-
         <div>
             <label>Produit</label>
                 <select value={product} onChange={handleChange}>

@@ -1,5 +1,4 @@
 // == Import
-import reactLogo from './react-logo.svg';
 import './styles.css';
 import { useState } from 'react';
 

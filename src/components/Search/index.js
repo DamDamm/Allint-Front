@@ -1,11 +1,13 @@
+// == Import
 import React from 'react';
-import { useState } from 'react';
+import productData from "../../data/MOCK_products.json"
+
+//Components
 import AllergyInput from "./AllergyInput";
 import BrandInput from "./BrandInput";
 import ProductInput from "./ProductInput";
 import CategoryInput from "./CategoryInput";
-import Results from "../Results"
-import productData from "../../data/MOCK_products.json"
+
 
 const Search = ({product, setProduct, productResult, setProductResult}) => {
   
@@ -15,8 +17,7 @@ const Search = ({product, setProduct, productResult, setProductResult}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({product});
-    setProductResult(productData.find(el => el.name === product)); // find the corresponding product in the json array
+    setProductResult(productData.find(el => el.name === product)); // set the corresponding product in the json array as the result
   };
 
     return (
