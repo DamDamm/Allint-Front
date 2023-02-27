@@ -17,7 +17,6 @@ import LoginForm from '../LoginForm';
 import Profil from '../Profil';
 
 
-console.log('amonck0@cornell.edu && gICdpN')
 
 // == App
 function App() {
