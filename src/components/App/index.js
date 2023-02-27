@@ -14,8 +14,10 @@ import Footer from '../Footer';
 import Error from '../Error'; 
 import ProfileForm from '../ProfileForm';
 import LoginForm from '../LoginForm';
+import Profil from '../Profil';
 
-      
+
+console.log('amonck0@cornell.edu && gICdpN')
 
 // == App
 function App() {
@@ -29,7 +31,8 @@ function App() {
       <Footer /> 
       <LoginForm />
       <ProfileForm />
-
+      <Profil />
+      
 
   </div>
 )
