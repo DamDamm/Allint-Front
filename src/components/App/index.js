@@ -1,11 +1,8 @@
 // == Import
-import reactLogo from './react-logo.svg';
 import './styles.css';
 import { useState } from 'react';
 
-
 // Components
-
 import Home from 'src/components/Home';
 import Product from 'src/components/Product';
 import Search from 'src/components/Search';
@@ -20,8 +17,10 @@ import Profil from '../Profil';
 
 
 // == App
-const App = () => {
+function App() {
 
+  const [product, setProduct] = useState(''); // select a product from option list
+  const [productResult, setProductResult] = useState(''); // corresponding data to selected product
   const [isLoggedInApp, setIsLoggedInApp] = useState(); // Initialize isLoggedInApp to Undefined.
 
   const userConnected = () => {
@@ -34,18 +33,17 @@ const App = () => {
 
   console.log(isLoggedInApp);
 
-
   return (
-    <div className="app">
-      
-      {/* <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/> */}
-      {/* <Search />
-      <Results /> */}
+    <div className="app" >
+      <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
+      <Search 
+      product={product}
+      setProduct={setProduct}
+      productResult={productResult}
+      setProductResult={setProductResult}/>
+      <Results 
+      productResult={productResult} />
       <Product />
-      {/* <Footer />  */}
-      {/* <LoginForm isLogged={isLoggedInApp} isConnected={userConnected} />
-      <ProfileForm />
-      <Profil /> */}
     </div>
   );
 }
