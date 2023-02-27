@@ -2,6 +2,8 @@ import Profil from "./Profil";
 import Connexion from "./Connexion";
 import Deconnexion from "./Deconnexion";
 
+import './styles.scss'
+
 //We get the LoginForm props and pass it in the header
 const Header = ({isLogged, isDisconnected}) => {
 
