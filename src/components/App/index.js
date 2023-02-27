@@ -1,6 +1,7 @@
 // == Import
 import reactLogo from './react-logo.svg';
 import './styles.css';
+import { useState } from 'react';
 
 
 // Components
@@ -19,23 +20,35 @@ import Profil from '../Profil';
 
 
 // == App
-function App() {
+const App = () => {
+
+  const [isLoggedInApp, setIsLoggedInApp] = useState(); // Initialize isLoggedInApp to Undefined.
+
+  const userConnected = () => {
+    setIsLoggedInApp(true) // Update isLoggedInApp in true when user connected
+  }
+
+  const userDisconnected = () => {
+    setIsLoggedInApp(false) // Update isLoggedInApp in true when user disconnected
+  };
+
+  console.log(isLoggedInApp);
+
+
   return (
     <div className="app">
       
-      <Header />
+      <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
       <Search />
       <Results />
       <Product />
       <Footer /> 
-      <LoginForm />
+      <LoginForm isLogged={isLoggedInApp} isConnected={userConnected} />
       <ProfileForm />
       <Profil />
-      
-
-  </div>
-)
-  };
+    </div>
+  );
+}
 
 // == Export
 export default App;
