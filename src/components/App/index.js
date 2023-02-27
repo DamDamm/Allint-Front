@@ -12,6 +12,7 @@ import Results from 'src/components/Results';
 import Header from '../Header';
 import Footer from '../Footer';
 import Error from '../Error'; 
+import ProfileForm from '../ProfileForm';
 import LoginForm from '../LoginForm';
 
       
@@ -27,10 +28,12 @@ function App() {
       <Product />
       <Footer /> 
       <LoginForm />
+      <ProfileForm />
 
 
   </div>
-);
+)
+  };
 
 // == Export
 export default App;
