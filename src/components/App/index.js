@@ -1,11 +1,8 @@
 // == Import
-import reactLogo from './react-logo.svg';
 import './styles.css';
 import { useState } from 'react';
 
-
 // Components
-
 import Home from 'src/components/Home';
 import Product from 'src/components/Product';
 import Search from 'src/components/Search';
@@ -25,8 +22,10 @@ import { Routes, Route } from 'react-router-dom';
 
 
 // == App
-const App = () => {
+function App() {
 
+  const [product, setProduct] = useState(''); // select a product from option list
+  const [productResult, setProductResult] = useState(''); // corresponding data to selected product
   const [isLoggedInApp, setIsLoggedInApp] = useState(); // Initialize isLoggedInApp to Undefined.
 
   const userConnected = () => {
@@ -39,13 +38,19 @@ const App = () => {
 
   console.log(isLoggedInApp);
 
-
   return (
     <div className="app">
 
       <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
         <Routes >
-          <Route exact path='/' element={<> <Search/><Results/> </>}/>
+          <Route exact path='/' element={<> 
+          <Search product={product}
+          setProduct={setProduct}
+          productResult={productResult}
+          setProductResult={setProductResult}/>
+          <Results productResult={productResult} />
+          </>}/>
+          
           <Route exact path='/connexion' element={<> <LoginForm isLogged={isLoggedInApp} isConnected={userConnected}/><ProfileForm /> </>} />
           <Route exact path='/profil' element={<Profil />} />
           <Route exact path='/product/:id' element={<Product />} />
@@ -53,9 +58,10 @@ const App = () => {
           <Route exact path ='/mentionslegales' element={<MentionsLegales/>} />
           <Route exact path ='/apropos' element={<Apropos/>} />
           <Route exact path ='/cgu' element={<Cgu/>} />
-
+          
         </Routes>
       <Footer/>
+
 
     </div>
   );

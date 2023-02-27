@@ -3,9 +3,7 @@ const CategoryInput = () => {
 
         <div>
             <label>Categories</label>
-                <select>
-                    <option></option>
-                </select>
+                <select></select>
         </div>
     )
 };

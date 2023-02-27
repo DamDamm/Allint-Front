@@ -4,9 +4,11 @@ import ProfileForm from '../ProfileForm';
 
 const Profil = () => {
 
+
   const navigate = useNavigate();
 
    /* const handleSubmitClick = (event) => {
+
     event.preventDefault();
     navigate('/');
     console.log(event);
@@ -15,7 +17,9 @@ const Profil = () => {
 
   return (
     <ProfileForm
+
       // handleClick={handleSubmitClick}
+
     />
   );
 };
