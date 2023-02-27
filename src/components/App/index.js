@@ -4,18 +4,20 @@ import './styles.css';
 import { useState } from 'react';
 
 
+// Components
 
-//Components
 import Home from 'src/components/Home';
-import Header from '../Header';
 import Product from 'src/components/Product';
 import Search from 'src/components/Search';
 import Results from 'src/components/Results';
+import Header from '../Header';
 import Footer from '../Footer';
 import Error from '../Error'; 
+import ProfileForm from '../ProfileForm';
 import LoginForm from '../LoginForm';
+import Profil from '../Profil';
 
-      
+
 
 // == App
 const App = () => {
@@ -42,7 +44,8 @@ const App = () => {
       <Product />
       <Footer /> 
       <LoginForm isLogged={isLoggedInApp} isConnected={userConnected} />
-    
+      <ProfileForm />
+      <Profil />
     </div>
   );
 }
