@@ -8,7 +8,7 @@ const Connexion = ({isLogged}) => {
 
    return (
         <Link to ='/connexion'>
-        {!isLogged && <button className='connexion'> Connexion </button> /* if user deconnected, the button appears  */}
+        {!isLogged && <button className='header-connexion'> Connexion </button> /* if user deconnected, the button appears  */}
         </Link>
     )
 }

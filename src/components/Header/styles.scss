@@ -1,10 +1,61 @@
 @use 'src/styles/_vars.scss';
 
 .header{
-    background-color: red;
-}
-
-.connexion{
     display: flex;
-    font-size: 15px;
-}
+    justify-content: space-between;
+    align-items: center;
+    margin:0 10px 10px 10px;
+
+    &-btns{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &-connexion{
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: vars.$color-white;
+        padding: 5px;
+        border: 1px solid black;
+        border-bottom: 3px solid black;
+    }
+
+    &-connexion:hover{
+        box-shadow: 0 3px 2px vars.$color-yellow;
+        font-size: 16px;
+    }
+
+
+    &-profil{
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: vars.$color-white;
+        padding: 5px;
+        border: 1px solid black;
+        border-bottom: 3px solid black;
+    }
+
+    &-profil:hover{
+        box-shadow: 0 3px 2px vars.$color-yellow;
+        font-size: 16px;
+    }
+
+
+    &-deconnexion{
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: vars.$color-white;
+        padding: 5px;
+        margin-left: 10px;
+        border: 1px solid black;
+        border-bottom: 3px solid black;
+    }
+
+    &-deconnexion:hover{
+        box-shadow: 0 3px 2px vars.$color-yellow;
+        font-size: 16px;
+    }
+    
+
+};
