@@ -1,6 +1,6 @@
-@use 'src/styles/vars';
+@use 'src/styles/_vars.scss';
 
-.header {
-
+.connexion{
+    display: flex;
+    font-size: 15px;
 }
-
