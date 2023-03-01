@@ -9,7 +9,7 @@ const Header = ({isLogged, isDisconnected}) => {
 
     return (
         <header className="header">
-            <img />
+            <img src="#"/>
                 <Profil isLogged={isLogged} /*We pass the props in Connexion element *//> 
                 <Connexion isLogged={isLogged} /*We pass the props in Connexion element */ /> 
                 <Deconnexion isLogged={isLogged} isDisconnected={isDisconnected} /*We pass the props in Connexion element *//> 
