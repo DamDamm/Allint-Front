@@ -2,15 +2,13 @@
 
 .nouscontacter{
     font-size: 15px;
+    display: flex;
+    justify-content: center;
 
 .card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 75%;
     margin: 10px;
     padding: 10px;
-    border: 3px solid black;
-    border-bottom: 3px solid vars.$color-yellow;
 }
 
 };
