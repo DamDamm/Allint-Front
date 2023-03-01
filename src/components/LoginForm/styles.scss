@@ -1,0 +1,33 @@
+@use 'src/styles/_vars.scss';
+
+.login{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+
+    &-title{
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 10px;
+        font-size: 20px;
+        font-style: italic;
+    }
+
+    &-form{
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px 0 10px;
+    }
+
+    &-label{
+        display: flex;
+        justify-content: flex-start;
+        margin: 20px 0 10px 0;
+    }
+
+    &-submit{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+};

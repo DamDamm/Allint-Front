@@ -1,3 +1,5 @@
+import './styles.scss'
+
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -40,10 +42,11 @@ const LoginForm = ({ isLogged, isConnected }) => {
   
 
   return (
-    <div>
+    <div className='login'>
+      <h2 className='login-title'> Deja venu ? </h2>
       {!connected && (
-        <form className="form" onSubmit={handleSubmit}>
-          <label>Entrez votre Email</label>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <label className='login-label'>Entrez votre Email</label>
           <input
             type="email"
             name="email"
@@ -51,7 +54,7 @@ const LoginForm = ({ isLogged, isConnected }) => {
             value={login}
             onChange={handleChange}
           />
-          <label>Entrez votre mot de passe</label>
+          <label className='login-label'>Entrez votre mot de passe</label>
           <input
             type="password"
             name="password"
@@ -59,8 +62,9 @@ const LoginForm = ({ isLogged, isConnected }) => {
             value={password}
             onChange={handleChange}
           />
-          <input type="submit" value="Connexion" />
-          <p> {resultConnexion} </p>
+          <div className='login-submit'>
+          <input type="submit" value="Connexion"/>
+          </div>
         </form>
       )}
     </div>
