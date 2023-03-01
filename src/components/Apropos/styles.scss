@@ -1,9 +1,9 @@
 @use 'src/styles/_vars.scss';
 
-.mentionslegales{
+.apropos{
     font-size: 15px;
 
-.cards{
+.card{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,10 +12,12 @@
     border: 3px solid black;
     border-bottom: 3px solid vars.$color-yellow;
 
-    &-card{
+    &-avatar{
+        padding: 10px;
         margin: 10px;
-        text-align: justify
+        border: 2px solid black;
     }
-    }   
+}
+
 };
 

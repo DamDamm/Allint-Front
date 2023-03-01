@@ -1,7 +1,37 @@
+import './styles.scss'
+
 const Apropos = () => {
     return (
-        <div>
-            <h1> Ceci est la page qui va montrer l'équipe de developpeurs </h1>
+        <div className='apropos'>
+            <div className='card'>
+                <img src='#' className='card-avatar'/>
+                <p> NOM </p>
+                <p> Prénom </p>
+            </div>
+
+            <div className='card'>
+                <img src='#' className='card-avatar'/>
+                <p> NOM </p>
+                <p> Prénom </p>
+            </div>
+
+            <div className='card'>
+                <img src='#' className='card-avatar'/>
+                <p> NOM </p>
+                <p> Prénom </p>
+            </div>
+
+            <div className='card'>
+                <img src='#' className='card-avatar'/>
+                <p> NOM </p>
+                <p> Prénom </p>
+            </div>
+
+            <div className='card'>
+                <img src='#' className='card-avatar'/>
+                <p> NOM </p>
+                <p> Prénom </p>
+            </div>
         </div>
     )
 };

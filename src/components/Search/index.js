@@ -14,7 +14,7 @@ const Search = ({product, setProduct, productResult, setProductResult}) => {
   const handleChange = (event) => {
     setProduct(event.target.value)  // set state to selected product
   };
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     setProductResult(productData.find(el => el.name === product)); // set the corresponding product in the json array as the result
@@ -31,7 +31,6 @@ const Search = ({product, setProduct, productResult, setProductResult}) => {
         handleChange={handleChange}
         product={product}
         />
-
 
         <button type="submit"> Rechercher </button>
         </form>

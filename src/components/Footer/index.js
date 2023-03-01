@@ -8,7 +8,9 @@ const Footer = () => {
                 <button>A propos</button>
             </Link>
 
-            <button>Nous contacter</button>
+            <Link to='nouscontacter'>
+                <button>Nous contacter</button>
+            </Link>
 
             <Link to ='cgu'>
                 <button>CGU</button>

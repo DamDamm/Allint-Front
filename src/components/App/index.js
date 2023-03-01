@@ -18,6 +18,7 @@ import Apropos from '../Apropos';
 import Cgu from '../cgu';
 
 import { Routes, Route } from 'react-router-dom';
+import NousContacter from '../NousContacter';
 
 
 
@@ -35,8 +36,6 @@ function App() {
   const userDisconnected = () => {
     setIsLoggedInApp(false) // Update isLoggedInApp in true when user disconnected
   };
-
-  console.log(isLoggedInApp);
 
   return (
     <div className="app">
@@ -56,6 +55,7 @@ function App() {
           <Route exact path='/product/:id' element={<Product />} />
           <Route exact path='/*' element={<Error />} />
           <Route exact path ='/mentionslegales' element={<MentionsLegales/>} />
+          <Route exact path='/nouscontacter' element={<NousContacter/>} />
           <Route exact path ='/apropos' element={<Apropos/>} />
           <Route exact path ='/cgu' element={<Cgu/>} />
           
