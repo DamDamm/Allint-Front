@@ -60,6 +60,11 @@
         border-bottom: 3px solid black;
     }
 
+    &-submit:hover{
+        font-size: 16px;
+    }
+
+
     @media screen and (max-width: 767px){
         &-field-input{
             width: 300px;

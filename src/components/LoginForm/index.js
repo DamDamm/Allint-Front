@@ -67,6 +67,7 @@ const LoginForm = ({ isLogged, isConnected }) => {
           </div>
         </form>
       )}
+      <div className='login-horizontalbar'></div>
     </div>
   );
 };
