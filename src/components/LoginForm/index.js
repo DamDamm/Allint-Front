@@ -46,24 +46,24 @@ const LoginForm = ({ isLogged, isConnected }) => {
       <h2 className='login-title'> Deja venu ? </h2>
       {!connected && (
         <form className="login-form" onSubmit={handleSubmit}>
-          <label className='login-label'>Entrez votre Email</label>
-          <input
+          
+          <input className='login-input'
             type="email"
             name="email"
             placeholder="Adresse Email"
             value={login}
             onChange={handleChange}
           />
-          <label className='login-label'>Entrez votre mot de passe</label>
-          <input
+          
+          <input className='login-input' 
             type="password"
             name="password"
             placeholder="Mot de Passe"
             value={password}
             onChange={handleChange}
           />
-          <div className='login-submit'>
-          <input type="submit" value="Connexion"/>
+          <div className='login-submit-div'>
+          <input type="submit" value="Se Connecter" className='login-submit' />
           </div>
         </form>
       )}

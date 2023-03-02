@@ -1,8 +1,10 @@
 @use 'src/styles/_vars.scss';
 
 .login{
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-bottom: 100px;
 
     &-title{
@@ -19,15 +21,58 @@
         margin: 0 10px 0 10px;
     }
 
-    &-label{
-        display: flex;
-        justify-content: flex-start;
-        margin: 20px 0 10px 0;
+    &-input{
+        width: 500px;
+        font-size: 15px;
+        height: 40px;
+        margin-top: 20px; 
+        background-color: vars.$color-grey;
+        resize: both;
     }
 
-    &-submit{
+    &-submit-div{
         display: flex;
         justify-content: flex-end;
         margin-top: 10px;
+    }
+
+    &-submit{
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: vars.$color-blue;
+        padding: 5px;
+        margin-left: 10px;
+        border: 1px solid black;
+        border-bottom: 3px solid black;
+    }
+
+    @media screen and (max-width: 767px){
+        &-input{
+            width: 300px;
+            font-size: 15px;
+            height: 40px;
+            margin-top: 20px; 
+            background-color: vars.$color-grey;
+        }
+    
+        &-allergy{
+            width: 100%;
+            margin: 40px 10px 20px 10px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-submit{
+            width: 100%;
+            font-size: 15px;
+            border-radius: 5px;
+            background-color: vars.$color-blue;
+            padding: 5px;
+            border: 1px solid black;
+            border-bottom: 3px solid black;
+        }
     }
 };

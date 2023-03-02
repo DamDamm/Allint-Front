@@ -64,8 +64,9 @@ const ProfileForm = ({ handleClick }) => {
 
 
   return (
-    <div>
-      <form>
+    <div className='profil'>
+      <h2 className='profil-title'>Nouveau chez nous ? Bienvenue !</h2>
+      <form className='profil-form'>
         <Field
           name="name"
           type="name"
@@ -119,7 +120,7 @@ const ProfileForm = ({ handleClick }) => {
           hundleClick={handleCheckChangeOnClick}
         />
 
-        <input onSubmit={handleSubmitClick} type="submit" value="Enregistrer" />
+        <input onSubmit={handleSubmitClick} type="submit" value="Enregistrer" className='profil-submit'/>
 
       </form>
     </div>
