@@ -11,6 +11,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import Error from '../Error'; 
 import ProfileForm from '../ProfileForm';
+import Login from '../Login';
 import LoginForm from '../LoginForm';
 import Profil from '../Profil';
 import MentionsLegales from '../MentionsLegales';
@@ -41,8 +42,9 @@ function App() {
   return (
     <div className="app">
 
-      <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
+        <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
         <Routes >
+          
           <Route exact path='/' element={<> 
           <Search product={product}
           setProduct={setProduct}
@@ -51,7 +53,8 @@ function App() {
           <Results productResult={productResult} />
           </>}/>
           
-          <Route exact path='/connexion' element={<> <LoginForm isLogged={isLoggedInApp} isConnected={userConnected}/><ProfileForm /> </>} />
+          <Route exact path='/connexion' element={<Login isLogged={isLoggedInApp} isConnected={userConnected}/>} />
+          
           <Route exact path='/profil' element={<Profil />} />
           <Route exact path='/product/:id' element={<Product />} />
           <Route exact path='/*' element={<Error />} />
