@@ -22,6 +22,7 @@ const Profil = ({ isLogged, isConnected, isDisconnected }) => {
   }; */
 
   return (
+
     <Page>
       <Header isLogged={isLogged} isConnected={isConnected} isDisconnected={isDisconnected}/>
     <div>
@@ -30,6 +31,7 @@ const Profil = ({ isLogged, isConnected, isDisconnected }) => {
       />
     </div>
     </Page>
+    
   );
 };
 

@@ -12,6 +12,8 @@ const Product = ({isLogged, isConnected, isDisconnected}) => {
   const findProduct = products.find((product) => product.id === 8076800195057); // remplacer ici le '8076800195057' par l' id de l'element cliqué
   const toggler = true;
   const classNameProduct = toggler ? 'product__card right' : 'product__card wrong';
+
+
   return (
     <Page>
       <Header isLogged={isLogged} isConnected={isConnected} isDisconnected={isDisconnected}/>
