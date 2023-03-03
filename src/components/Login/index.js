@@ -1,6 +1,5 @@
 import LoginForm from '../LoginForm';
 import ProfileForm from '../ProfileForm';
-import Footer from '../Footer';
 
 //On n'oublie pas de destructurer les props pour les utiliser
 const Login = ({ isLogged, isConnected }) => {
@@ -8,7 +7,6 @@ const Login = ({ isLogged, isConnected }) => {
     <div>
       <LoginForm isLogged={isLogged} isConnected={isConnected} />
       <ProfileForm />
-      <Footer />
     </div>
   );
 };

@@ -3,12 +3,12 @@ import './styles.css';
 import { useState } from 'react';
 
 // Components
-import Home from 'src/components/Home';
 import Product from 'src/components/Product';
 import Search from 'src/components/Search';
 import Results from 'src/components/Results';
 import Header from '../Header';
 import Footer from '../Footer';
+import Home from '../Home';
 import Error from '../Error'; 
 import ProfileForm from '../ProfileForm';
 import Login from '../Login';
@@ -45,25 +45,22 @@ function App() {
         <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
         <Routes >
           
-          <Route exact path='/' element={<> 
-          <Search product={product}
+          <Route exact path='/' element={ 
+          <Home product={product}
           setProduct={setProduct}
           productResult={productResult}
           setProductResult={setProductResult}/>
-          <Results productResult={productResult} />
-          </>}/>
-          
+          }/>
           <Route exact path='/connexion' element={<Login isLogged={isLoggedInApp} isConnected={userConnected}/>} />
-          
           <Route exact path='/profil' element={<Profil />} />
           <Route exact path='/product/:id' element={<Product />} />
           <Route exact path='/*' element={<Error />} />
           <Route exact path ='/mentionslegales' element={<MentionsLegales/>} />
           <Route exact path ='/apropos' element={<Apropos/>} />
           <Route exact path ='/cgu' element={<Cgu/>} />
-          
+
         </Routes>
-      <Footer/>
+        <Footer />
 
 
     </div>
