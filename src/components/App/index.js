@@ -3,23 +3,18 @@ import './styles.css';
 import { useState } from 'react';
 
 // Components
-import Product from 'src/components/Product';
-import Search from 'src/components/Search';
-import Results from 'src/components/Results';
-import Header from '../Header';
-import Footer from '../Footer';
 import Home from '../Home';
-import Error from '../Error'; 
-import ProfileForm from '../ProfileForm';
 import Login from '../Login';
-import LoginForm from '../LoginForm';
 import Profil from '../Profil';
-import MentionsLegales from '../MentionsLegales';
+import Product from 'src/components/Product';
 import Apropos from '../Apropos';
-import Cgu from '../cgu';
+import Footer from '../Footer';
+import MentionsLegales from '../MentionsLegales';
+import Cgu from '../Cgu';
+import Error from '../Error'; 
+
 
 import { Routes, Route } from 'react-router-dom';
-
 
 
 // == App
@@ -27,6 +22,7 @@ function App() {
 
   const [product, setProduct] = useState(''); // select a product from option list
   const [productResult, setProductResult] = useState(''); // corresponding data to selected product
+
   const [isLoggedInApp, setIsLoggedInApp] = useState(); // Initialize isLoggedInApp to Undefined.
 
   const userConnected = () => {
@@ -37,28 +33,28 @@ function App() {
     setIsLoggedInApp(false) // Update isLoggedInApp in true when user disconnected
   };
 
-  console.log(isLoggedInApp);
 
   return (
     <div className="app">
 
-        <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
         <Routes >
-          
           <Route exact path='/' element={ 
           <Home product={product}
           setProduct={setProduct}
           productResult={productResult}
-          setProductResult={setProductResult}/>
+          setProductResult={setProductResult}
+          isLogged={isLoggedInApp} 
+          isConnected={userConnected}
+          isDisconnected={userDisconnected}
+          />
           }/>
           <Route exact path='/connexion' element={<Login isLogged={isLoggedInApp} isConnected={userConnected}/>} />
-          <Route exact path='/profil' element={<Profil />} />
-          <Route exact path='/product/:id' element={<Product />} />
-          <Route exact path='/*' element={<Error />} />
-          <Route exact path ='/mentionslegales' element={<MentionsLegales/>} />
-          <Route exact path ='/apropos' element={<Apropos/>} />
-          <Route exact path ='/cgu' element={<Cgu/>} />
-
+          <Route exact path='/profil' element={<Profil isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>} />
+          <Route exact path='/product/:id' element={<Product isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>} />
+          <Route exact path='/*' element={<Error isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>}/>
+          <Route exact path ='/mentionslegales' element={<MentionsLegales isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>} />
+          <Route exact path ='/apropos' element={<Apropos isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>} />
+          <Route exact path ='/cgu' element={<Cgu isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>} />
         </Routes>
         <Footer />
 
@@ -66,6 +62,7 @@ function App() {
     </div>
   );
 }
+
 
 // == Export
 export default App;
