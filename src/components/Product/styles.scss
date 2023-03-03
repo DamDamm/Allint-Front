@@ -3,20 +3,26 @@
 .product{
   &__card{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: vars.$color-green;
-    border: 1px solid vars.$color-green;
-    width: 750;
-    height: 150px;
+    border: 10px solid vars.$color-green;
+    border-radius: 8px;
+    width: 90%;
+    height: 500px;
+    margin: auto;
+    padding: 0.5em;
   }
   &__picture{
-    width: 30%;
-    align-self: center;
+      object-fit: contain;
+      width:100%;
+      height: 50%;
+      &-img{
+        max-height: 100%;
+      }
   }
   &__informations{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
   }
   &__brand{
     font-weight: bold;
@@ -27,9 +33,13 @@
   }
   &__ingredients{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin: auto;
+    height: 100%;
     &-picture{
-
+      object-fit: contain;
+      width:100%;
+      height: 100%;
     }
   }
 }

@@ -32,18 +32,20 @@ function App() {
   };
 
   console.log(isLoggedInApp);
-
+  console.log(productResult);
+  console.log(product);
   return (
     <div className="app" >
       <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
       <Search 
       product={product}
       setProduct={setProduct}
-      productResult={productResult}
       setProductResult={setProductResult}/>
       <Results 
       productResult={productResult} />
-      <Product />
+      
+      <Product
+      productResult={productResult} />
     </div>
   );
 }
