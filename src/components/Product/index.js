@@ -1,4 +1,6 @@
 import './styles.scss';
+import Header from '../Header';
+import Footer from '../Footer';
 
 import products from '../../data/MOCK_products.json';
 
@@ -28,7 +30,7 @@ const Product = () => {
           </ul>
         </div>
       </div>
-      <Header />
+      <Footer />
     </div>
   );
 };
