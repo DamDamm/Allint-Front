@@ -8,6 +8,7 @@ const Product = () => {
   const classNameProduct = toggler ? 'product__card right' : 'product__card wrong';
   return (
     <div className={classNameProduct}>
+      <Header />
       <div className="product__picture">
         <img src={findProduct.product_picture} alt={findProduct.name} />
       </div>
@@ -27,6 +28,7 @@ const Product = () => {
           </ul>
         </div>
       </div>
+      <Header />
     </div>
   );
 };
