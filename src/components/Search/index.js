@@ -33,7 +33,7 @@ const Search = ({
           product={product}
         />
 
-        <button type="submit" disabled={!product}> Rechercher </button>;
+        <button type="submit" disabled={!product}> Rechercher </button>
         {/* set the button disabled if no product is selected or if the first option is selected */}
       </form>
     </div>
