@@ -9,7 +9,6 @@ import Page from '../Page';
 // Destructuring props to use them
 const Profil = ({ isLogged, isConnected, isDisconnected }) => {
 
-  console.log(isLogged);
 
   const navigate = useNavigate();
 
@@ -21,17 +20,22 @@ const Profil = ({ isLogged, isConnected, isDisconnected }) => {
     // Fonction d'envoi des données au BACKEND (POST ou UPDATE)
   }; */
 
+  const connected = isLogged;
+
   return (
 
     <Page>
       <Header isLogged={isLogged} isConnected={isConnected} isDisconnected={isDisconnected}/>
+    {connected ? (
     <div>
       <ProfileForm
       // handleClick={handleSubmitClick}
       />
     </div>
-    </Page>
-    
+    ) : (
+    <p>Veuillez vous connecter afin d'acceder à votre profil</p>
+    )}
+    </Page> 
   );
 };
 
