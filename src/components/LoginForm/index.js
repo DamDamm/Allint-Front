@@ -1,3 +1,5 @@
+import './styles.scss'
+
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -40,29 +42,32 @@ const LoginForm = ({ isLogged, isConnected }) => {
   
 
   return (
-    <div>
+    <div className='login'>
+      <h2 className='login-title'> Deja venu ? </h2>
       {!connected && (
-        <form className="form" onSubmit={handleSubmit}>
-          <label>Entrez votre Email</label>
-          <input
+        <form className="login-form" onSubmit={handleSubmit}>
+          
+          <input className='login-input'
             type="email"
             name="email"
             placeholder="Adresse Email"
             value={login}
             onChange={handleChange}
           />
-          <label>Entrez votre mot de passe</label>
-          <input
+          
+          <input className='login-input' 
             type="password"
             name="password"
             placeholder="Mot de Passe"
             value={password}
             onChange={handleChange}
           />
-          <input type="submit" value="Connexion" />
-          <p> {resultConnexion} </p>
+          <div className='login-submit-div'>
+          <input type="submit" value="Se Connecter" className='login-submit' />
+          </div>
         </form>
       )}
+      <div className='login-horizontalbar'></div>
     </div>
   );
 };

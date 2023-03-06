@@ -1,4 +1,5 @@
 import { string, func } from 'prop-types';
+import '../styles.scss'
 
 const Field = ({
   value,
@@ -10,13 +11,13 @@ const Field = ({
   const inputId = `field-${name}`;
 
   return (
-    <div className="field">
+    <div className="profil-field">
       <input
         value={value}
         onChange={onChange}
         id={inputId}
         type={type}
-        className="field-input"
+        className="profil-field-input"
         placeholder={placeholder}
         name={name}
       />

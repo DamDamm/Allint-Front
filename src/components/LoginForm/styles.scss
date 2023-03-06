@@ -1,57 +1,41 @@
 @use 'src/styles/_vars.scss';
 
-.profil{
+.login{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 100px;
 
     &-title{
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 10px;
         font-size: 20px;
         font-style: italic;
     }
 
-    &-field-input{
+    &-form{
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px 0 10px;
+    }
+
+    &-input{
         width: 500px;
         font-size: 15px;
         height: 40px;
         margin-top: 20px; 
         background-color: vars.$color-grey;
+        resize: both;
     }
 
-    &-allergy{
-        width: 100%;
-        margin: 40px 10px 20px 10px;
+    &-submit-div{
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
-
-    &-checkbox-div
-    {
-        background-color: vars.$color-grey;
-        width: 200px;
-        border: 2px solid black;
-        margin: 10px;
-        padding: 10px;
-        font-size: 15px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-    &-checkbox{
-        margin-right: 20px
-    }
-
-    &-checkbox-label{
-        text-align: start;
+        justify-content: flex-end;
+        margin-top: 10px;
     }
 
     &-submit{
-        width: 500px;
         font-size: 15px;
         border-radius: 5px;
         background-color: vars.$color-blue;
@@ -64,9 +48,15 @@
         font-size: 16px;
     }
 
+    &-horizontalbar{
+        margin: 20px 0 20px 0;
+        height: 2px;
+        width: 60%;
+        background-color:black;
+    }
 
     @media screen and (max-width: 767px){
-        &-field-input{
+        &-input{
             width: 300px;
             font-size: 15px;
             height: 40px;
@@ -95,4 +85,3 @@
         }
     }
 };
-
