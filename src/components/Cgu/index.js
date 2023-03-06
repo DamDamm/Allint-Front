@@ -1,22 +1,13 @@
-<<<<<<< HEAD
+
 import PropTypes from 'prop-types';
 import Page from "../Page";
 import Header from "../Header";
+import './styles.scss'
 
-// Destructuring props to use them
 const Cgu = ({ isLogged, isConnected, isDisconnected }) => {
     return (
         <Page>
-            <Header isLogged={isLogged} isConnected={isConnected} isDisconnected={isDisconnected}/>
-            <div>
-                <h1> Ceci est la page qui va montrer les conditions générales d'utilisation </h1>
-            </div>
-        </Page>
-=======
-import './styles.scss'
-
-const Cgu = () => {
-    return (
+        <Header isLogged={isLogged} isConnected={isConnected} isDisconnected={isDisconnected}/>
         <div className="cgu">
             <ul className="cards">
             <li className='cards-card'>
@@ -39,7 +30,7 @@ const Cgu = () => {
 
             </ul>
         </div>
->>>>>>> dev
+        </Page>
     )
 };
 
