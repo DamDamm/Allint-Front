@@ -1,20 +1,14 @@
-import LoginForm from './LoginForm'
-import InscriptionForm from './InscriptionForm'
+import LoginForm from '../LoginForm';
+import ProfileForm from '../ProfileForm';
 
-const Login = () => {
-    return(
+//On n'oublie pas de destructurer les props pour les utiliser
+const Login = ({ isLogged, isConnected }) => {
+  return (
     <div>
-        <div>
-            <h3>Se connecter</h3>
-            <LoginForm />
-        </div>
-
-        <div>
-            <h3>S'inscrire</h3>
-            <InscriptionForm />
-        </div>
+      <LoginForm isLogged={isLogged} isConnected={isConnected} />
+      <ProfileForm />
     </div>
-    )   
+  );
 };
 
 export default Login;
