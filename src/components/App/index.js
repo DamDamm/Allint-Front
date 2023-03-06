@@ -34,6 +34,8 @@ function App() {
     setIsLoggedInApp(false) // Update isLoggedInApp in true when user disconnected
   };
 
+  console.log(isLoggedInApp);
+
   return (
     <div className="app">
 
