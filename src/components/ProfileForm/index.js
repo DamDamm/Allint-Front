@@ -127,7 +127,7 @@ const ProfileForm = ({ handleClick }) => {
 };
 
 ProfileForm.propTypes = {
-  handleClick: func.isRequired,
+  handleClick: func,
 };
 
 export default ProfileForm;

@@ -15,6 +15,7 @@ import Error from '../Error';
 
 
 import { Routes, Route } from 'react-router-dom';
+import NousContacter from '../NousContacter';
 
 
 // == App
@@ -32,8 +33,6 @@ function App() {
   const userDisconnected = () => {
     setIsLoggedInApp(false) // Update isLoggedInApp in true when user disconnected
   };
-
-  console.log(isLoggedInApp);
 
   return (
     <div className="app">
