@@ -39,12 +39,38 @@
 
     &-submit{
       height: 30px;
-        font-size: 15px;
-        border-radius: 5px;
-        background-color: vars.$color-yellow;
-        padding: 5px;
-        border: 1px solid black;
-        border-bottom: 3px solid black;
+      font-size: 15px;
+      border-radius: 5px;
+      background-color: grey;
+      padding: 5px;
+      border: 1px solid black;
+      border-bottom: 3px solid black;
+      
+      &:before{
+        left: 0;
+        height: 0;
+        width: 100%;
+      }
+      &:before,
+      &:after {
+        left: 0;
+        height: 0;
+        width: 100%;
+      }
+      &:before {
+        bottom: 0;  
+        border: 1px solid vars.$color-yellow;
+        border-top: 0;
+        border-bottom: 0;
+      }
+      &:after {
+        top: 0;
+        height: 0;
+      }
+      &:hover:before,
+      &:hover:after {
+        height: 100%;
+      }
     }
 
     &-horizontalbar{
