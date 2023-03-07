@@ -13,6 +13,8 @@ const ProfileForm = ({ handleClick }) => {
   const [zipcode, setZipcode] = useState('');
   const [city, setCity] = useState('');
   const [allergyChoice, setAllergyChoice] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  const [deleteBtnForm, setDeleteBtnForm] = useState(true);
 
   const handleEmailChangeField = (event) => {
     setEmail(event.target.value);
@@ -54,6 +56,11 @@ const ProfileForm = ({ handleClick }) => {
     }
   };
 
+  //shows the form when the button is clicked 
+  const showFormClick = () => {
+    setShowForm(true)
+    setDeleteBtnForm(false)
+  }
 
   const handleSubmitClick = (event) => {
     event.preventDefault();
@@ -66,6 +73,10 @@ const ProfileForm = ({ handleClick }) => {
   return (
     <div className='profil'>
       <h2 className='profil-title'>Nouveau chez nous ? Bienvenue !</h2>
+      {deleteBtnForm && (
+      <button className='profil-button' onClick={showFormClick}> Inscrivez vous ! </button>
+      )}
+      {showForm && (
       <form className='profil-form'>
         <Field
           name="name"
@@ -123,6 +134,7 @@ const ProfileForm = ({ handleClick }) => {
         <input onSubmit={handleSubmitClick} type="submit" value="Enregistrer" className='profil-submit'/>
 
       </form>
+      )}
     </div>
   );
 };
