@@ -18,7 +18,7 @@ const Search = ({product, setProduct, setProductResult}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setProductResult(productData.find(el => el.name === product)); // set the corresponding product in the json array as the result
+    setProductResult(productData.filter(el => el.category === product)); // set the corresponding product in the json array as the result
     console.log(product)
   };
 
@@ -27,8 +27,10 @@ const Search = ({product, setProduct, setProductResult}) => {
         <img />
         <form onSubmit={handleSubmit} className='search__form'>
           {/* <AllergyInput />
-        <BrandInput />
-        <CategoryInput /> */}
+        <BrandInput /> */}
+        <CategoryInput 
+        handleChange={handleChange}
+        product={product}/> 
         <ProductInput 
         handleChange={handleChange}
         product={product}

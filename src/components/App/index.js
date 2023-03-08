@@ -42,7 +42,8 @@ function App() {
       setProduct={setProduct}
       setProductResult={setProductResult}/>
       <Results 
-      productResult={productResult} />
+      productResult={productResult} 
+      setProductResult={setProductResult}/>
       
       <Product
       productResult={productResult} />

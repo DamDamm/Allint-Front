@@ -17,9 +17,8 @@ const Product = ({productResult}) => {
           <h2 className="product__name">{productResult.name}</h2>
         </div>
         <div className="product__ingredients">
-          <div>
             <img className="product__ingredients-picture" src={productResult.product_ingredients} alt="ingrédients" />
-          </div>
+            <p>{productResult.ingredients}</p>
           <ul className="product__ingredients-list">
             {/* {productResult.ingredients.map((ingredient) => (
               <li key={ingredient} className="product__ingredients-item">{ingredient}</li>
