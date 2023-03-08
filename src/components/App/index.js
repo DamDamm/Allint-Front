@@ -2,9 +2,6 @@
 import './styles.css';
 import { useState } from 'react';
 
-// Axios
-import axios from 'axios';
-
 // Router
 import { Routes, Route } from 'react-router-dom';
 
@@ -34,8 +31,6 @@ const App = () => {
   const userDisconnected = () => {
     setIsLoggedInApp(false); // Update isLoggedInApp in true when user disconnected
   };
-
-  console.log(isLoggedInApp);
 
   return (
     <div className="app">
