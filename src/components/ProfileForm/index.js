@@ -9,12 +9,13 @@ const ProfileForm = ({ handleClick }) => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [lastname, setLastname] = useState('');
-  const [adress, setAdress] = useState('');
-  const [zipcode, setZipcode] = useState('');
-  const [city, setCity] = useState('');
   const [allergyChoice, setAllergyChoice] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [deleteBtnForm, setDeleteBtnForm] = useState(true);
+  // V.3
+  // const [adress, setAdress] = useState('');
+  // const [zipcode, setZipcode] = useState('');
+  // const [city, setCity] = useState('');
 
   const handleEmailChangeField = (event) => {
     setEmail(event.target.value);
@@ -32,17 +33,18 @@ const ProfileForm = ({ handleClick }) => {
     setLastname(event.target.value);
   };
 
-  const handleAdressChangeField = (event) => {
-    setAdress(event.target.value);
-  };
+  // V.3
+  // const handleAdressChangeField = (event) => {
+  //   setAdress(event.target.value);
+  // };
 
-  const handleZipcodeChangeField = (event) => {
-    setZipcode(event.target.value);
-  };
+  // const handleZipcodeChangeField = (event) => {
+  //   setZipcode(event.target.value);
+  // };
 
-  const handleCityChangeField = (event) => {
-    setCity(event.target.value);
-  };
+  // const handleCityChangeField = (event) => {
+  //   setCity(event.target.value);
+  // };
 
   const handleCheckChangeOnClick = (event) => {
     const allergyName = event.target.name;
@@ -56,11 +58,11 @@ const ProfileForm = ({ handleClick }) => {
     }
   };
 
-  //shows the form when the button is clicked 
+  // shows the form when the button is clicked
   const showFormClick = () => {
-    setShowForm(true)
-    setDeleteBtnForm(false)
-  }
+    setShowForm(true);
+    setDeleteBtnForm(false);
+  };
 
   const handleSubmitClick = (event) => {
     event.preventDefault();
@@ -69,15 +71,14 @@ const ProfileForm = ({ handleClick }) => {
     // Fonction d'envoi des données au BACKEND (POST ou UPDATE)
   };
 
-
   return (
-    <div className='profil'>
-      <h2 className='profil-title'>Nouveau chez nous ? Bienvenue !</h2>
+    <div className="profil">
+      <h2 className="profil-title">Nouveau chez nous ? Bienvenue !</h2>
       {deleteBtnForm && (
-      <button className='profil-button' onClick={showFormClick}> Inscrivez vous ! </button>
+      <button className="profil-button" onClick={showFormClick}> Inscrivez vous ! </button>
       )}
       {showForm && (
-      <form className='profil-form'>
+      <form className="profil-form">
         <Field
           name="name"
           type="name"
@@ -106,7 +107,9 @@ const ProfileForm = ({ handleClick }) => {
           onChange={handlePasswordChangeField}
           value={password}
         />
-        <Field
+
+        {/* V.3 */}
+        {/* <Field
           name="adress"
           type="adress"
           placeholder="Adresse"
@@ -126,12 +129,13 @@ const ProfileForm = ({ handleClick }) => {
           placeholder="Ville"
           onChange={handleCityChangeField}
           value={city}
-        />
+        /> */}
+
         <Allergy
           hundleClick={handleCheckChangeOnClick}
         />
 
-        <input onSubmit={handleSubmitClick} type="submit" value="Enregistrer" className='profil-submit'/>
+        <input onSubmit={handleSubmitClick} type="submit" value="Enregistrer" className="profil-submit" />
 
       </form>
       )}
