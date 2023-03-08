@@ -75,7 +75,7 @@ const ProfileForm = ({ handleClick }) => {
     <div className="profil">
       <h2 className="profil-title">Nouveau chez nous ? Bienvenue !</h2>
       {deleteBtnForm && (
-      <button className="profil-button" onClick={showFormClick}> Inscrivez vous ! </button>
+      <button type="button" className="profil-button" onClick={showFormClick}> Inscrivez vous ! </button>
       )}
       {showForm && (
       <form className="profil-form">
@@ -131,9 +131,9 @@ const ProfileForm = ({ handleClick }) => {
           value={city}
         /> */}
 
-        <Allergy
+        {/* <Allergy
           hundleClick={handleCheckChangeOnClick}
-        />
+        /> */}
 
         <input onSubmit={handleSubmitClick} type="submit" value="Enregistrer" className="profil-submit" />
 
