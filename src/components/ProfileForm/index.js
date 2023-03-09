@@ -4,33 +4,40 @@ import Allergy from '../Allergy';
 import Field from './Field';
 import './styles.scss';
 
+// Hooks
+import postDataProfile from '../../hooks/postDataProfile';
+
 const ProfileForm = ({ handleClick }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [adress, setAdress] = useState('');
-  const [zipcode, setZipcode] = useState('');
-  const [city, setCity] = useState('');
-  const [allergyChoice, setAllergyChoice] = useState([]);
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [name, setName] = useState('');
+  // const [lastname, setLastname] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    lastname: '',
+    email: '',
+    password: '',
+  });
+  // const [allergyChoice, setAllergyChoice] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [deleteBtnForm, setDeleteBtnForm] = useState(true);
 
-  const handleEmailChangeField = (event) => {
-    setEmail(event.target.value);
+  const handleChangeField = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+  console.log(formData);
 
-  const handlePasswordChangeField = (event) => {
-    setPassword(event.target.value);
-  };
+  // const handlePasswordChangeField = (event) => {
+  //   setPassword(event.target.value);
+  // };
 
-  const handleNameChangeField = (event) => {
-    setName(event.target.value);
-  };
+  // const handleNameChangeField = (event) => {
+  //   setName(event.target.value);
+  // };
 
-  const handleLastnameChangeField = (event) => {
-    setLastname(event.target.value);
-  };
+  // const handleLastnameChangeField = (event) => {
+  //   setLastname(event.target.value);
+  // };
 
   // const handleAdressChangeField = (event) => {
   //   setAdress(event.target.value);
@@ -44,17 +51,17 @@ const ProfileForm = ({ handleClick }) => {
   //   setCity(event.target.value);
   // };
 
-  const handleCheckChangeOnClick = (event) => {
-    const allergyName = event.target.name;
-    const isChecked = event.target.checked;
+  // const handleCheckChangeOnClick = (event) => {
+  //   const allergyName = event.target.name;
+  //   const isChecked = event.target.checked;
 
-    if (isChecked) {
-      setAllergyChoice([...allergyChoice, allergyName]);
-    }
-    else {
-      setAllergyChoice(allergyChoice.filter((allergy) => allergy !== allergyName));
-    }
-  };
+  //   if (isChecked) {
+  //     setAllergyChoice([...allergyChoice, allergyName]);
+  //   }
+  //   else {
+  //     setAllergyChoice(allergyChoice.filter((allergy) => allergy !== allergyName));
+  //   }
+  // };
 
   // shows the form when the button is clicked
   const showFormClick = () => {
@@ -81,29 +88,29 @@ const ProfileForm = ({ handleClick }) => {
           name="name"
           type="name"
           placeholder="Prénom"
-          onChange={handleNameChangeField}
-          value={name}
+          onChange={handleChangeField}
+          value={formData.name}
         />
         <Field
           name="lastname"
           type="lastname"
           placeholder="Nom"
-          onChange={handleLastnameChangeField}
-          value={lastname}
+          onChange={handleChangeField}
+          value={formData.lastname}
         />
         <Field
           name="email"
           type="email"
           placeholder="Adresse Email"
-          onChange={handleEmailChangeField}
-          value={email}
+          onChange={handleChangeField}
+          value={formData.email}
         />
         <Field
           name="password"
           type="password"
           placeholder="Mot de passe"
-          onChange={handlePasswordChangeField}
-          value={password}
+          onChange={handleChangeField}
+          value={formData.password}
         />
         {/* // <Field
         //   name="adress"
