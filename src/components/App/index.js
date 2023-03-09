@@ -2,9 +2,11 @@
 import './styles.css';
 import { useState } from 'react';
 
+// Router
+import { Routes, Route } from 'react-router-dom';
+
 // Components
 import Product from 'src/components/Product';
-import { Routes, Route } from 'react-router-dom';
 import Home from '../Home';
 import Login from '../Login';
 import Profil from '../Profil';
@@ -14,8 +16,6 @@ import NousContacter from '../NousContacter';
 import MentionsLegales from '../MentionsLegales';
 import Cgu from '../Cgu';
 import Error from '../Error';
-
-// Router
 
 // == App
 const App = () => {
@@ -31,8 +31,6 @@ const App = () => {
   const userDisconnected = () => {
     setIsLoggedInApp(false); // Update isLoggedInApp in true when user disconnected
   };
-
-  console.log(isLoggedInApp);
 
   return (
     <div className="app">

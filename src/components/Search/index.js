@@ -1,6 +1,7 @@
 // == Import
 
-import productData from '../../data/MOCK_products.json';
+import getApi from '../../hooks/getApi';
+import productsData from '../../data/MOCK_products.json';
 
 // Components
 import ProductInput from './ProductInput';
@@ -19,7 +20,7 @@ const Search = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setProductResult(productData.find((el) => el.name === product)); // set the corresponding product in the json array as the result
+    setProductResult(productsData.find((el) => el.name === product)); // set the corresponding product in the json array as the result
   };
 
   return (
