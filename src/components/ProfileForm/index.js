@@ -32,17 +32,17 @@ const ProfileForm = ({ handleClick }) => {
     setLastname(event.target.value);
   };
 
-  const handleAdressChangeField = (event) => {
-    setAdress(event.target.value);
-  };
+  // const handleAdressChangeField = (event) => {
+  //   setAdress(event.target.value);
+  // };
 
-  const handleZipcodeChangeField = (event) => {
-    setZipcode(event.target.value);
-  };
+  // const handleZipcodeChangeField = (event) => {
+  //   setZipcode(event.target.value);
+  // };
 
-  const handleCityChangeField = (event) => {
-    setCity(event.target.value);
-  };
+  // const handleCityChangeField = (event) => {
+  //   setCity(event.target.value);
+  // };
 
   const handleCheckChangeOnClick = (event) => {
     const allergyName = event.target.name;
@@ -56,11 +56,11 @@ const ProfileForm = ({ handleClick }) => {
     }
   };
 
-  //shows the form when the button is clicked 
+  // shows the form when the button is clicked
   const showFormClick = () => {
-    setShowForm(true)
-    setDeleteBtnForm(false)
-  }
+    setShowForm(true);
+    setDeleteBtnForm(false);
+  };
 
   const handleSubmitClick = (event) => {
     event.preventDefault();
@@ -69,15 +69,14 @@ const ProfileForm = ({ handleClick }) => {
     // Fonction d'envoi des données au BACKEND (POST ou UPDATE)
   };
 
-
   return (
-    <div className='profil'>
-      <h2 className='profil-title'>Nouveau chez nous ? Bienvenue !</h2>
+    <div className="profil">
+      <h2 className="profil-title">Nouveau chez nous ? Bienvenue !</h2>
       {deleteBtnForm && (
-      <button className='profil-button' onClick={showFormClick}> Inscrivez vous ! </button>
+      <button type="button" className="profil-button" onClick={showFormClick}> Inscrivez vous ! </button>
       )}
       {showForm && (
-      <form className='profil-form'>
+      <form className="profil-form">
         <Field
           name="name"
           type="name"
@@ -106,32 +105,32 @@ const ProfileForm = ({ handleClick }) => {
           onChange={handlePasswordChangeField}
           value={password}
         />
-        <Field
-          name="adress"
-          type="adress"
-          placeholder="Adresse"
-          onChange={handleAdressChangeField}
-          value={adress}
-        />
-        <Field
-          name="zipcode"
-          type="zipcode"
-          placeholder="Code Postal"
-          onChange={handleZipcodeChangeField}
-          value={zipcode}
-        />
-        <Field
-          name="city"
-          type="city"
-          placeholder="Ville"
-          onChange={handleCityChangeField}
-          value={city}
-        />
-        <Allergy
-          hundleClick={handleCheckChangeOnClick}
-        />
+        {/* // <Field
+        //   name="adress"
+        //   type="adress"
+        //   placeholder="Adresse"
+        //   onChange={handleAdressChangeField}
+        //   value={adress}
+        // />
+        // <Field
+        //   name="zipcode"
+        //   type="zipcode"
+        //   placeholder="Code Postal"
+        //   onChange={handleZipcodeChangeField}
+        //   value={zipcode}
+        // />
+        // <Field
+        //   name="city"
+        //   type="city"
+        //   placeholder="Ville"
+        //   onChange={handleCityChangeField}
+        //   value={city}
+        // />
+        // <Allergy
+        //   hundleClick={handleCheckChangeOnClick}
+        // /> */}
 
-        <input onSubmit={handleSubmitClick} type="submit" value="Enregistrer" className='profil-submit'/>
+        <input onSubmit={handleSubmitClick} type="submit" value="Enregistrer" className="profil-submit" />
 
       </form>
       )}
