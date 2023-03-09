@@ -1,5 +1,6 @@
 // ---- Imports ----
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { func } from 'prop-types';
 import './styles.scss';
 
@@ -11,9 +12,17 @@ import Field from './Field';
 import postDataProfile from '../../hooks/postDataProfile';
 
 const ProfileForm = ({ handleClick }) => {
-  //          ___State___
+  //      ___Router___
+  const navigate = useNavigate();
+
+  //      ___Axios___
+  const {
+    data, error, isLoading, post,
+  } = postDataProfile('/register');
+
+  //      ___State___
   const [formData, setFormData] = useState({
-    name: '',
+    firstname: '',
     lastname: '',
     email: '',
     password: '',
@@ -22,7 +31,7 @@ const ProfileForm = ({ handleClick }) => {
   const [deleteBtnForm, setDeleteBtnForm] = useState(true);
   // const [allergyChoice, setAllergyChoice] = useState([]);
 
-  //          ___Methods___
+  //      ___Methods___
   // ...put input values into formData object
   const handleChangeField = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -48,10 +57,15 @@ const ProfileForm = ({ handleClick }) => {
 
   const handleSubmitClick = (event) => {
     event.preventDefault();
-    navigate('/');
-    console.log(event);
-    // Fonction d'envoi des données au BACKEND (POST ou UPDATE)
+    post(formData);
   };
+
+  // ...Redirection to Home if data sent to server
+  useEffect(() => {
+    if (data) {
+      navigate('/');
+    }
+  }, [data]);
 
   return (
     <div className="profil">
@@ -60,10 +74,10 @@ const ProfileForm = ({ handleClick }) => {
       <button type="button" className="profil-button" onClick={showFormClick}> Inscrivez vous ! </button>
       )}
       {showForm && (
-      <form className="profil-form">
+      <form className="profil-form" onSubmit={handleSubmitClick}>
         <Field
-          name="name"
-          type="name"
+          name="firstname"
+          type="firstname"
           placeholder="Prénom"
           onChange={handleChangeField}
           value={formData.name}
@@ -94,8 +108,9 @@ const ProfileForm = ({ handleClick }) => {
         hundleClick={handleCheckChangeOnClick}
         /> */}
 
-        <input onSubmit={handleSubmitClick} type="submit" value="Enregistrer" className="profil-submit" />
-
+        <input type="submit" value="Enregistrer" className="profil-submit" />
+        {isLoading && <p>Chargement de vos informations...</p>}
+        {error && <p>{error}</p>}
       </form>
       )}
     </div>
