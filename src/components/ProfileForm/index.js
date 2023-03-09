@@ -62,6 +62,7 @@ const ProfileForm = ({ handleClick }) => {
 
   // ...Redirection to Home if data sent to server
   useEffect(() => {
+    // if (islogged) ?
     if (data) {
       navigate('/');
     }
