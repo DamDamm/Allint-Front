@@ -6369,6 +6369,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"localStorage@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "localStorage@npm:1.0.4"
+  checksum: ba0b604cf7774573819ef0430acd59bf670a764dedf3734ed4d9f049afb3d98b0163f0a42c2156571a5ab5f2cd302e9747f4cafd54ee4f35ecadcdc801d614d9
+  languageName: node
+  linkType: hard
+
 "locate-path@npm:^3.0.0":
   version: 3.0.0
   resolution: "locate-path@npm:3.0.0"
@@ -8349,6 +8356,7 @@ __metadata:
     html-webpack-plugin: "*"
     json-server: ^0.17.2
     jsonwebtoken: ^9.0.0
+    localStorage: ^1.0.4
     mini-css-extract-plugin: "*"
     postcss: "*"
     postcss-loader: "*"
