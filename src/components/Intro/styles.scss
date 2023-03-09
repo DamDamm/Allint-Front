@@ -1,0 +1,26 @@
+@use 'src/styles/_vars.scss';
+
+.introduction {
+  &__container{
+
+  }
+  &__title{
+    height: 30vh;
+    font-size: 100%;
+  }
+}
+
+.Typewriter{
+  height: 30vh;
+}
+.Typewriter__wrapper, .Typewriter__cursor {
+  text-align: left;
+  font-size:20vh;
+}
+.Typewriter__cursor{
+  color: vars.$color-yellow;
+}
+
+.ici {
+  margin-top: 100vh;
+}

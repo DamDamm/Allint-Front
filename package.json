@@ -61,6 +61,7 @@
     "react": "*",
     "react-dom": "*",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.8.1"
+    "react-router-dom": "^6.8.1",
+    "typewriter-effect": "^2.19.0"
   }
 }
