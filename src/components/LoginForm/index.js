@@ -3,7 +3,9 @@ import './styles.scss';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
+import { getApi, setToken } from '../../api/auth';
 import usersData from 'src/data/MOCK_users.json';
 
 const LoginForm = ({ isLogged, isConnected }) => {
@@ -25,24 +27,27 @@ const LoginForm = ({ isLogged, isConnected }) => {
   };
 
   // Function when submit form
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const user = usersData.find((u) => u.email === login); // Search user with Email
-    if (user && user.password === password) { // Check if password is great
-      setResultConnexion('Connexion réussie');
-      isConnected(); // Call the isConnected function to change the global authentication status
-      navigate('/'); // When the user is logged in, he is redirected to the home page
+    if (!login || !password){
+      console.log('Les deux champs sont requis');
+      return
     }
-    else {
-      setResultConnexion('Email ou Mot de Passe invalide');
-    }
+    const result = await getApi().post('/login', {
+      email: login,
+      password
+    });
+    const token = result.data
+    setToken(token);
+    isConnected(token);
+    navigate('/')
   };
 
   const connected = isLogged; // Stock the authentication props in a variable
 
   return (
     <div className="login">
-      <h2 className="login-title"> Deja venu ? </h2>
+      <h2 className="login-title"> Déjà venu ? </h2>
 
       {!connected && (
       <form className="login-form" onSubmit={handleSubmit}>

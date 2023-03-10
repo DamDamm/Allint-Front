@@ -2,9 +2,8 @@
 import './styles.css';
 import { useState } from 'react';
 
-// Router
-import { Routes, Route } from 'react-router-dom';
-
+import { getToken, removeToken } from '../../api/auth';
+import { Routes, Route } from 'react-router-dom'
 // Components
 import Product from 'src/components/Product';
 import Home from '../Home';
@@ -22,15 +21,17 @@ const App = () => {
   const [product, setProduct] = useState(''); // select a product from option list
   const [productResult, setProductResult] = useState(''); // corresponding data to selected product
 
-  const [isLoggedInApp, setIsLoggedInApp] = useState(); // Initialize isLoggedInApp to Undefined.
+  const [isLoggedInApp, setIsLoggedInApp] = useState(''); // Initialize isLoggedInApp to Undefined.
 
   const userConnected = () => {
-    setIsLoggedInApp(true); // Update isLoggedInApp in true when user connected
-  };
+    setIsLoggedInApp(true) // Update isLoggedInApp in true when user connected
+  }
 
   const userDisconnected = () => {
-    setIsLoggedInApp(false); // Update isLoggedInApp in true when user disconnected
+    setIsLoggedInApp(false) // Update isLoggedInApp in true when user disconnected
   };
+
+  console.log(isLoggedInApp);
 
   return (
     <div className="app">
