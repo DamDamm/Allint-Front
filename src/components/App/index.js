@@ -3,6 +3,7 @@ import './styles.css';
 import { useState } from 'react';
 
 import { getToken, removeToken } from '../../api/auth';
+import { Routes, Route } from 'react-router-dom'
 // Components
 import Product from 'src/components/Product';
 import Home from '../Home';
