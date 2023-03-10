@@ -10,33 +10,37 @@ const Introduction = () => {
   };
 
   return (
-    <div className="introduction__container">
-      <Typewriter
-        onInit={(typewriter) => {
-          typewriter
-            .typeString('Allergiques')
-            .pauseFor(1000)
-            .deleteAll()
-            .typeString('Intolérants')
-            .pauseFor(1000)
-            .deleteAll()
-            .typeString('Allint')
-            .pauseFor(2000)
-            .start();
-        }}
-        options={{
-          autoStart: true,
-          loop: true,
-        }}
-      />
-      <div className="container">
-        <h2>Nous vous aidons à faire vos courses en triant les produits que vous pouvez consommer</h2>
-        <p>renseignez vos allergies, entrez le produit, triez</p>
-        <button type="button" onClick={scrollToSection}>Testez la recherche</button>
-        <div className="ici" ref={sectionRef}>
-          <h2>Section</h2>
-          <p>Contenu de la section</p>
+    <div className="app">
+      <div className="introduction__container">
+        <div className="introduction__container-catch">
+          <h2 className="introduction__catch-title">Allint, l'application qui vous fait gagner du temps.</h2>
+          <p className="introduction__catch-text">Nous vous aidons à faire vos courses en vous montrant les produits que vous pouvez consommer.<br />Renseignez vos allergies, entrez le produit, gagnez du temps.</p>
+          <button type="button" onClick={scrollToSection}>Rechercher un produit</button>
         </div>
+        <div className="introduction__container-typewriter">
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter
+                .typeString('Allergies')
+                .pauseFor(1000)
+                .deleteAll()
+                .typeString('Intolérances')
+                .pauseFor(1000)
+                .deleteAll()
+                .typeString('Allint')
+                .pauseFor(2000)
+                .start();
+            }}
+            options={{
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </div>
+      </div>
+      <div className="ici" ref={sectionRef}>
+        <h2>Section</h2>
+        <p>Contenu de la section</p>
       </div>
 
     </div>
