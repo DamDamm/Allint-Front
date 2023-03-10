@@ -25,10 +25,6 @@ const Cgu = ({ isLogged, isConnected, isDisconnected }) => {
        </Page>
         )
     };
-
-    )
-};
-
 Cgu.propTypes = {
     isLogged: PropTypes.bool, 
     isConnected: PropTypes.func,
