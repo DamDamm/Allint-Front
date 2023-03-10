@@ -46,7 +46,7 @@ const CustomAllergyInput = () => {
           onChange={handleInputChange}
         />
         <button type="submit" disabled={isButtonDisabled}>
-          Add
+          +
         </button>
       </form>
       <ul>
