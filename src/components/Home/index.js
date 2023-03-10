@@ -6,6 +6,7 @@ import Result from '../Results';
 
 import './styles.scss';
 import cart from '../../assets/img/cart.gif';
+import Introduction from '../Intro';
 
 // Destructuring props to use them
 const Home = ({
@@ -14,6 +15,7 @@ const Home = ({
   <Page>
     <Header isLogged={isLogged} isDisconnected={isDisconnected} />
     <div>
+      <Introduction />
       <Search
         product={product}
         setProduct={setProduct}
