@@ -19,6 +19,7 @@ export const getApi = () => {
   
   const headers = {}
   const token = getToken();
+  console.log(token)
   if (token){
     headers.Authorization = `Bearer ${token}`
   }
@@ -32,22 +33,22 @@ export const getApi = () => {
 
 
 
-  const getUsers = async (token) => {
-    try {
+  // const getUsers = async (token) => {
+  //   try {
 
-      const headers = token && { Authorization: `Bearer ${token}` };
-      const body = { /* objet contenant les paramètres de la requête POST */ };
-      const response = await axios.post('https://repo-back2-production.up.railway.app/login', body, { headers });
-      setData(response.data);
-    } catch (err) {
-      setError('Une erreur est survenue lors de la récupération des utilisateurs');
-    }
-  };
+  //     const headers = token && { Authorization: `Bearer ${token}` };
+  //     const body = { /* objet contenant les paramètres de la requête POST */ };
+  //     const response = await axios.post('https://repo-back2-production.up.railway.app/login', body, { headers });
+  //     setData(response.data);
+  //   } catch (err) {
+  //     setError('Une erreur est survenue lors de la récupération des utilisateurs');
+  //   }
+  // };
   
-  return {
-    data,
-    error,
-    getUsers,
-  };
+  // return {
+  //   data,
+  //   error,
+  //   getUsers,
+  // };
   
 };

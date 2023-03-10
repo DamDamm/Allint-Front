@@ -1,11 +1,10 @@
 import './styles.scss';
+import { getApi, setToken } from '../../api/auth';
 
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
-import { getApi, setToken } from '../../api/auth';
 import usersData from 'src/data/MOCK_users.json';
 
 const LoginForm = ({ isLogged, isConnected }) => {
@@ -28,6 +27,7 @@ const LoginForm = ({ isLogged, isConnected }) => {
 
   // Function when submit form
   const handleSubmit = async (event) => {
+
     event.preventDefault();
     if (!login || !password){
       console.log('Les deux champs sont requis');
@@ -35,9 +35,10 @@ const LoginForm = ({ isLogged, isConnected }) => {
     }
     const result = await getApi().post('/login', {
       email: login,
-      password
+      password: password,
     });
     const token = result.data
+    console.log(token)
     setToken(token);
     isConnected(token);
     navigate('/')
