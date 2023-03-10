@@ -9,7 +9,7 @@ import Field from './Field';
 // import Allergy from '../Allergy';
 
 // ---- Hooks ----
-import postDataProfile from '../../hooks/postDataProfile';
+import postDataProfile from '../../api/postDataProfile';
 
 const ProfileForm = ({ handleClick }) => {
   //      ___Router___

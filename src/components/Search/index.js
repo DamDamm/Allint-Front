@@ -1,6 +1,5 @@
 // == Import
 
-import getApi from '../../hooks/getApi';
 import productsData from '../../data/MOCK_products.json';
 
 // Components
