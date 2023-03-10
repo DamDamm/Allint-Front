@@ -12,7 +12,7 @@ const Home = ({
   product, setProduct, productResult, setProductResult, isLogged, isConnected, isDisconnected,
 }) => (
   <Page>
-    <Header isLogged={isLogged} isConnected={isConnected} isDisconnected={isDisconnected} />
+    <Header isLogged={isLogged} isDisconnected={isDisconnected} />
     <div>
       <Search
         product={product}

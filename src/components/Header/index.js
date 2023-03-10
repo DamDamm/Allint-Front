@@ -32,8 +32,10 @@ const Header = ({ isLogged, isDisconnected }) => (
     </div>
     <div className="header-btns">
       <Profil isLogged={isLogged} /* We pass the props in Connexion element *//>
-      <Connexion isLogged={isLogged} /* We pass the props in Connexion element */ />
-      <Deconnexion isLogged={isLogged} isDisconnected={isDisconnected} /* We pass the props in Connexion element *//>
+      {/* <Connexion   /> */}
+      {/* <Deconnexion isDisconnected={isDisconnected}/> */}
+
+      {isLogged ? <Deconnexion isDisconnected={isDisconnected} /> : <Connexion />}
     </div>
   </header>
 );

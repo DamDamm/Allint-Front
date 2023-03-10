@@ -1,7 +1,8 @@
 // == Import
 import './styles.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { getToken, removeToken } from '../../api/auth';
 // Components
 import Home from '../Home';
 import Login from '../Login';
@@ -24,17 +25,25 @@ function App() {
   const [product, setProduct] = useState(''); // select a product from option list
   const [productResult, setProductResult] = useState(''); // corresponding data to selected product
 
-  const [isLoggedInApp, setIsLoggedInApp] = useState(); // Initialize isLoggedInApp to Undefined.
+  const [isLoggedInApp, setIsLoggedInApp] = useState(''); // Initialize isLoggedInApp to Undefined.
 
-  const userConnected = () => {
-    setIsLoggedInApp(true) // Update isLoggedInApp in true when user connected
+  const userConnected = (token) => {
+    setIsLoggedInApp(token) // Update isLoggedInApp in true when user connected
   }
 
   const userDisconnected = () => {
-    setIsLoggedInApp(false) // Update isLoggedInApp in true when user disconnected
+    setIsLoggedInApp('') // Update isLoggedInApp in true when user disconnected
+    removeToken();
   };
 
-  console.log(isLoggedInApp);
+
+  useEffect(() =>{
+    const token = getToken()
+    if(!token){
+      return
+    }
+    setIsLoggedInApp(token)
+  });
 
   return (
     <div className="app">
