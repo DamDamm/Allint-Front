@@ -1,50 +1,43 @@
-import { useState } from 'react';
+// ---- Imports ----
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { func } from 'prop-types';
-import Allergy from '../Allergy';
-import Field from './Field';
 import './styles.scss';
 
+//  ---- Components ----
+import Field from './Field';
+// import Allergy from '../Allergy';
+
+// ---- Hooks ----
+import postDataProfile from '../../hooks/postDataProfile';
+
 const ProfileForm = ({ handleClick }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [adress, setAdress] = useState('');
-  const [zipcode, setZipcode] = useState('');
-  const [city, setCity] = useState('');
-  const [allergyChoice, setAllergyChoice] = useState([]);
+  //      ___Router___
+  const navigate = useNavigate();
+
+  //      ___Axios___
+  const {
+    data, error, isLoading, post,
+  } = postDataProfile('/register');
+
+  //      ___State___
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+  });
   const [showForm, setShowForm] = useState(false);
   const [deleteBtnForm, setDeleteBtnForm] = useState(true);
+  // const [allergyChoice, setAllergyChoice] = useState([]);
 
-  const handleEmailChangeField = (event) => {
-    setEmail(event.target.value);
+  //      ___Methods___
+  // ...put input values into formData object
+  const handleChangeField = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handlePasswordChangeField = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleNameChangeField = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleLastnameChangeField = (event) => {
-    setLastname(event.target.value);
-  };
-
-  const handleAdressChangeField = (event) => {
-    setAdress(event.target.value);
-  };
-
-  const handleZipcodeChangeField = (event) => {
-    setZipcode(event.target.value);
-  };
-
-  const handleCityChangeField = (event) => {
-    setCity(event.target.value);
-  };
-
-  const handleCheckChangeOnClick = (event) => {
+  /* const handleCheckChangeOnClick = (event) => {
     const allergyName = event.target.name;
     const isChecked = event.target.checked;
 
@@ -54,85 +47,71 @@ const ProfileForm = ({ handleClick }) => {
     else {
       setAllergyChoice(allergyChoice.filter((allergy) => allergy !== allergyName));
     }
-  };
+  }; */
 
-  //shows the form when the button is clicked 
+  // ...shows the form when the button is clicked
   const showFormClick = () => {
-    setShowForm(true)
-    setDeleteBtnForm(false)
-  }
+    setShowForm(true);
+    setDeleteBtnForm(false);
+  };
 
   const handleSubmitClick = (event) => {
     event.preventDefault();
-    navigate('/');
-    console.log(event);
-    // Fonction d'envoi des données au BACKEND (POST ou UPDATE)
+    post(formData);
   };
 
+  // ...Redirection to Home if data sent to server
+  useEffect(() => {
+    // if (islogged) ?
+    if (data) {
+      navigate('/');
+    }
+  }, [data]);
 
   return (
-    <div className='profil'>
-      <h2 className='profil-title'>Nouveau chez nous ? Bienvenue !</h2>
+    <div className="profil">
+      <h2 className="profil-title">Nouveau chez nous ? Bienvenue !</h2>
       {deleteBtnForm && (
-      <button className='profil-button' onClick={showFormClick}> Inscrivez vous ! </button>
+      <button type="button" className="profil-button" onClick={showFormClick}> Inscrivez vous ! </button>
       )}
       {showForm && (
-      <form className='profil-form'>
+      <form className="profil-form" onSubmit={handleSubmitClick}>
         <Field
-          name="name"
-          type="name"
+          name="firstname"
+          type="firstname"
           placeholder="Prénom"
-          onChange={handleNameChangeField}
-          value={name}
+          onChange={handleChangeField}
+          value={formData.name}
         />
         <Field
           name="lastname"
           type="lastname"
           placeholder="Nom"
-          onChange={handleLastnameChangeField}
-          value={lastname}
+          onChange={handleChangeField}
+          value={formData.lastname}
         />
         <Field
           name="email"
           type="email"
           placeholder="Adresse Email"
-          onChange={handleEmailChangeField}
-          value={email}
+          onChange={handleChangeField}
+          value={formData.email}
         />
         <Field
           name="password"
           type="password"
           placeholder="Mot de passe"
-          onChange={handlePasswordChangeField}
-          value={password}
+          onChange={handleChangeField}
+          value={formData.password}
         />
-        <Field
-          name="adress"
-          type="adress"
-          placeholder="Adresse"
-          onChange={handleAdressChangeField}
-          value={adress}
-        />
-        <Field
-          name="zipcode"
-          type="zipcode"
-          placeholder="Code Postal"
-          onChange={handleZipcodeChangeField}
-          value={zipcode}
-        />
-        <Field
-          name="city"
-          type="city"
-          placeholder="Ville"
-          onChange={handleCityChangeField}
-          value={city}
-        />
+        {/*
         <Allergy
-          hundleClick={handleCheckChangeOnClick}
-        />
+        hundleClick={handleCheckChangeOnClick}
+        /> */}
 
-        <input onSubmit={handleSubmitClick} type="submit" value="Enregistrer" className='profil-submit'/>
-
+        <input type="submit" value="Enregistrer" className="profil-submit" />
+        {isLoading && <p>Chargement de vos informations...</p>}
+        {error && <p>{error}</p>}
       </form>
       )}
     </div>

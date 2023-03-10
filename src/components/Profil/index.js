@@ -8,11 +8,9 @@ import Page from '../Page';
 
 // Destructuring props to use them
 const Profil = ({ isLogged, isConnected, isDisconnected }) => {
-
-
   const navigate = useNavigate();
 
-   /* const handleSubmitClick = (event) => {
+  /* const handleSubmitClick = (event) => {
 
     event.preventDefault();
     navigate('/');
@@ -25,24 +23,22 @@ const Profil = ({ isLogged, isConnected, isDisconnected }) => {
   return (
 
     <Page>
-      <Header isLogged={isLogged} isConnected={isConnected} isDisconnected={isDisconnected}/>
-    {connected ? (
-    <div>
-      <ProfileForm
-      // handleClick={handleSubmitClick}
-      />
-    </div>
-    ) : (
-    <p>Veuillez vous connecter afin d'acceder à votre profil</p>
-    )}
-    </Page> 
+      <Header isLogged={isLogged} isConnected={isConnected} isDisconnected={isDisconnected} />
+      {connected ? (
+        <div>
+          <ProfileForm />
+        </div>
+      ) : (
+        <p>Veuillez vous connecter afin d'acceder à votre profil</p>
+      )}
+    </Page>
   );
 };
 
 Profil.propTypes = {
-  isLogged: PropTypes.bool, 
+  isLogged: PropTypes.bool,
   isConnected: PropTypes.func,
-  isDisconnected:PropTypes.func,
- };
+  isDisconnected: PropTypes.func,
+};
 
 export default Profil;
