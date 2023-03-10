@@ -1,0 +1,112 @@
+@use 'src/styles/_vars.scss';
+
+.login{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-title{
+        text-align: left;
+        margin-left: 10px;
+        font-size: 20px;
+        font-style: italic;
+        width: 50%;
+    }
+
+    &-form{
+        display: flex;
+        flex-direction:row;
+        justify-content: space-between;
+        margin: 0 10px 0 10px;
+        width: 50%;
+    }
+
+    &-input{
+        width: 300px;
+        font-size: 15px;
+        height: 30px;
+        margin-top: 20px; 
+        background-color: vars.$color-grey;
+        resize: both;
+    }
+
+    &-submit-div{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+    }
+
+    &-submit{
+      height: 30px;
+      font-size: 15px;
+      border-radius: 5px;
+      background-color: grey;
+      padding: 5px;
+      border: 1px solid black;
+      border-bottom: 3px solid black;
+      
+      &:before{
+        left: 0;
+        height: 0;
+        width: 100%;
+      }
+      &:before,
+      &:after {
+        left: 0;
+        height: 0;
+        width: 100%;
+      }
+      &:before {
+        bottom: 0;  
+        border: 1px solid vars.$color-yellow;
+        border-top: 0;
+        border-bottom: 0;
+      }
+      &:after {
+        top: 0;
+        height: 0;
+      }
+      &:hover:before,
+      &:hover:after {
+        height: 100%;
+      }
+    }
+
+    &-horizontalbar{
+        margin: 20px 0 20px 0;
+        height: 1px;
+        width: 50%;
+        background-color:black;
+    }
+
+    @media screen and (max-width: 767px){
+        &-input{
+            width: 300px;
+            font-size: 15px;
+            height: 40px;
+            margin-top: 20px; 
+            background-color: vars.$color-grey;
+        }
+    
+        &-allergy{
+            width: 100%;
+            margin: 40px 10px 20px 10px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-submit{
+            width: 100%;
+            font-size: 15px;
+            border-radius: 5px;
+            background-color: vars.$color-yellow;
+            padding: 5px;
+            border: 1px solid black;
+            border-bottom: 3px solid black;
+        }
+    }
+};

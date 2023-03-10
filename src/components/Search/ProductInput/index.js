@@ -1,26 +1,22 @@
 // == Import
-import productData from '../../../data/MOCK_products.json';
-import React from 'react';
 import { func, string } from 'prop-types';
+import productData from '../../../data/MOCK_products.json';
 
-const ProductInput = ({handleChange, product}) => {
-    
-    return (
-        <div>
-            <label>Produit</label>
-                <select value={product} onChange={handleChange}>
-                {productData.map(el => {
-                  return(
-                    <option key={el.id}>{el.name}</option>
-                  )})}
-                </select>
-        </div>
-    )
-};
+const ProductInput = ({ handleChange, product }) => (
+  <div>
+    <label>Produit</label>
+    <select value={product} onChange={handleChange}>
+      <option value="">Veuillez selectionner un produit</option>
+      {productData.map((prod) => (
+        <option key={prod.id}>{prod.name}</option>
+      ))}
+    </select>
+  </div>
+);
 
 ProductInput.propTypes = {
   handleChange: func.isRequired,
-  product: string.isRequired
-}
+  product: string.isRequired,
+};
 
 export default ProductInput;

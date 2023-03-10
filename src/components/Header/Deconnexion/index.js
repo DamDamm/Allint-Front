@@ -6,7 +6,7 @@ const Deconnexion = ( {isLogged, isDisconnected} ) => {
 
     return (
         <Link to ='/'>
-        {isLogged && <button onClick={isDisconnected} className='header-deconnexion'> Deconnexion </button> /* if user connected, the button appears  */}
+       <button onClick={isDisconnected} className='header-deconnexion'> Deconnexion </button> {/* if user connected, the button appears  */}
         </Link>
     )
 }
