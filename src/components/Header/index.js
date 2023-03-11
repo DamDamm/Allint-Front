@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { NavHashLink } from 'react-router-hash-link'
+import { NavHashLink } from 'react-router-hash-link';
 import Profil from './Profil';
 import Connexion from './Connexion';
 import Deconnexion from './Deconnexion';

@@ -11,7 +11,6 @@ const postDataProfile = (endpoint) => {
     try {
       const response = await axiosInstance.post(endpoint, formData);
       setData(response.data);
-      console.log(response.data);
       setIsLoading(false);
     }
     catch (err) {

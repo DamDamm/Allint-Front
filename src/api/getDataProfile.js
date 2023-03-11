@@ -1,35 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axiosInstance from './index';
 import { getToken } from './auth';
 
 const getDataProfile = (endpoint) => {
-  const [dataGet, setDataGet] = useState({
-    userAllergens: [],
-    defaultAllergens: [],
-    userInfos: {
-      lastName: '',
-      firstName: '',
-      email: '',
-      role_id: '', // 2 = user, 1 = admin
-    }
-  });
+  const [data, setData] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const get = async () => {
     setIsLoading(true);
+    console.log(isLoading);
     try {
       const token = getToken();
-      console.log("endpoit:", endpoint)
       const response = await axiosInstance.get(endpoint, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response.data)
-      setDataGet(response.data);
-      console.log(dataGet);
+      console.log(response.data.defaultAllergens);
+      setData(response.data);
+      console.log(data);
       setIsLoading(false);
+      console.log(isLoading);
     }
     catch (err) {
       setError("Une erreur est survenue lors de l'envoi de vos données");
@@ -38,7 +30,7 @@ const getDataProfile = (endpoint) => {
   };
 
   return {
-    dataGet, error, isLoading, get,
+    data, error, isLoading, get,
   };
 };
 

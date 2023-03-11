@@ -9,11 +9,9 @@ const ProfileForm = () => {
   const { dataGet, error, isLoading, get } = getDataProfile('/profil')
 
   useEffect(() => {
-    if (dataGet) {
-      setProfileData(dataGet);
-    }
-  }, [dataGet]);
-  
+    get();
+  }, []);
+
   const handleSubmit = (event) => {
     // event.preventDefault();
     // // Envoyer les données modifiées du profil utilisateur au back-end
