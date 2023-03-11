@@ -21,6 +21,8 @@ import Error from '../Error';
 const App = () => {
   const [product, setProduct] = useState(''); // select a product from option list
   const [productResult, setProductResult] = useState(''); // corresponding data to selected product
+  const [isSearchSubmitted, setIsSearchSubmitted] = useState(false)
+  const [isResultClicked, setIsResultClicked] = useState(false)
 
   const [isLoggedInApp, setIsLoggedInApp] = useState(''); // Initialize isLoggedInApp to Undefined.
 
@@ -59,6 +61,10 @@ const App = () => {
               isLogged={isLoggedInApp}
               isConnected={userConnected}
               isDisconnected={userDisconnected}
+              setIsSearchSubmitted={setIsSearchSubmitted}
+              isSearchSubmitted={isSearchSubmitted}
+              isResultClicked={isResultClicked}
+              setIsResultClicked={setIsResultClicked}
             />
         )}
         />
@@ -72,7 +78,6 @@ const App = () => {
         <Route exact path="/cgu" element={<Cgu isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
       </Routes>
       <Footer />
-
     </div>
   );
 };

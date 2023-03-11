@@ -7,10 +7,11 @@ import Result from '../Results';
 import './styles.scss';
 import cart from '../../assets/img/cart.gif';
 import Introduction from '../Intro';
+import Product from '../Product';
 
 // Destructuring props to use them
 const Home = ({
-  product, setProduct, productResult, setProductResult, isLogged, isConnected, isDisconnected,
+  product, setProduct, productResult, setProductResult, isLogged, isConnected, isDisconnected,setIsSearchSubmitted,isSearchSubmitted,isResultClicked,setIsResultClicked
 }) => (
   <Page>
     <Header isLogged={isLogged} isDisconnected={isDisconnected} />
@@ -21,12 +22,15 @@ const Home = ({
         setProduct={setProduct}
         productResult={productResult}
         setProductResult={setProductResult}
+        setIsSearchSubmitted={setIsSearchSubmitted}
+        setIsResultClicked={setIsResultClicked}
       />
-      {!product
+      {!isSearchSubmitted
       && (
       <div className="waiting_cart" />
       )}
-      {product && <Result productResult={productResult} />}
+      {isSearchSubmitted && <Result productResult={productResult} />}
+      {isResultClicked && <Product productResult={productResult} />}
 
     </div>
   </Page>

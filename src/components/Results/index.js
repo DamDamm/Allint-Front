@@ -1,15 +1,18 @@
+// == Import
+import "./styles.scss"
+
 const Results = ({productResult}) => {
   
   return (
-    <div>
-        <h3>Résultats</h3>
+    <div className="results__div">
+        <h1 className="results__title">Résultats</h1>
         <ul>
-            <li>
-              <img src={productResult.product_picture}></img>
-              <p>{productResult.name}</p>
-              <p>{productResult.category}</p>
-              <p>{productResult.brand}</p>
-              <p>{productResult.ingredients}</p>
+            <li className="results__card">
+              <img src={productResult.product_picture} className="results__card-img"></img>
+              <div>
+                <h2 className="results__card-name">{productResult.name}</h2>
+                <h3 className="results__card-brand">{productResult.brand}</h3>
+              </div>
             </li>
         </ul>
     </div>
