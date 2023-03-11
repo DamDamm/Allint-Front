@@ -1,20 +1,71 @@
 // == Import
-import reactLogo from './interdiction.jpeg';
 import './styles.css';
+import { useState } from 'react';
 
-// == Composant
-function App() {
+import { getToken, removeToken } from '../../api/auth';
+import { Routes, Route } from 'react-router-dom'
+// Components
+import Product from 'src/components/Product';
+import Home from '../Home';
+import Login from '../Login';
+import Profil from '../Profil';
+import Footer from '../Footer';
+import Apropos from '../Apropos';
+import NousContacter from '../NousContacter';
+import MentionsLegales from '../MentionsLegales';
+import Cgu from '../Cgu';
+import Error from '../Error';
+
+// == App
+const App = () => {
+  const [product, setProduct] = useState(''); // select a product from option list
+  const [productResult, setProductResult] = useState(''); // corresponding data to selected product
+
+  const [isLoggedInApp, setIsLoggedInApp] = useState(''); // Initialize isLoggedInApp to Undefined.
+
+  const userConnected = () => {
+    setIsLoggedInApp(true) // Update isLoggedInApp in true when user connected
+  }
+
+  const userDisconnected = () => {
+    setIsLoggedInApp(false) // Update isLoggedInApp in true when user disconnected
+  };
+
+  console.log(isLoggedInApp);
+
   return (
     <div className="app">
-      <img src={reactLogo} alt="react logo" />
-      <p>Si tu vois ça tu es sur la branche main et donc</p>
-      <p>TU N'AS RIEN A FAIRE ICI</p>
-      <p>Si tu ne veux pas te faire engueuler par tonton Thibaut, bascule de suite sur la branche dev.</p>
-      <p>J'espère même que tu as prévu la branche spécifique à ta feature....</p>
-      <p>Go git checkout maintenant</p>
+
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={(
+            <Home
+              product={product}
+              setProduct={setProduct}
+              productResult={productResult}
+              setProductResult={setProductResult}
+              isLogged={isLoggedInApp}
+              isConnected={userConnected}
+              isDisconnected={userDisconnected}
+            />
+        )}
+        />
+        <Route exact path="/connexion" element={<Login isLogged={isLoggedInApp} isConnected={userConnected} />} />
+        <Route exact path="/profil" element={<Profil isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/product/:id" element={<Product isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/*" element={<Error isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/mentionslegales" element={<MentionsLegales isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/apropos" element={<Apropos isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/nouscontacter" element={<NousContacter isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/cgu" element={<Cgu isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+      </Routes>
+      <Footer />
+
     </div>
   );
-}
+};
 
 // == Export
 export default App;
