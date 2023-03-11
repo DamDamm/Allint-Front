@@ -4,23 +4,21 @@ import React from 'react';
 import "../styles.scss"
 import { func, string } from 'prop-types';
 
-const ProductInput = ({handleChange, product}) => {
-    
-    return (
-        <div className='search__form_product'>
-            <label>Produit</label>
-                <select value={product} onChange={handleChange} className='search__form_product-select'>
-                {productData.map(el => {
-                  return(
-                    <option key={el.id}>{el.name}</option> // can only search by name, id is not defined
-                  )})}
-                </select>
-        </div>
-    )
-};
+const ProductInput = ({ handleChange, product }) => (
+  <div className='search__form_product'>
+    <label>Produit</label>
+    <select value={product} onChange={handleChange} className='search__form_product-select'>
+      <option value="">Veuillez selectionner un produit</option>
+      {productData.map((prod) => (
+        <option key={prod.id}>{prod.name}</option>
+      ))}
+    </select>
+  </div>
+);
 
 ProductInput.propTypes = {
   handleChange: func.isRequired,
-}
+  product: string.isRequired,
+};
 
 export default ProductInput;

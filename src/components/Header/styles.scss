@@ -1,6 +1,106 @@
-@use 'src/styles/vars';
+@use 'src/styles/_vars.scss';
 
-.header {
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:0 10px 10px 10px;
+    height: 100px;
+    font-weight: 600;
 
-}
+    &-img{
+      height: 100px;
+    }
 
+    &-btns{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &-connexion{
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: vars.$color-white;
+        padding: 5px;
+        margin-right: 10px;
+        border: 1px solid black;
+        border-bottom: 3px solid black;
+    }
+
+    &-connexion:hover{
+        box-shadow: 0 3px 2px vars.$color-yellow;
+        font-weight: 600;
+    }
+
+
+    &-profil{
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: vars.$color-white;
+        padding: 5px;
+        border: 1px solid black;
+        border-bottom: 3px solid black;
+    }
+
+    &-profil:hover{
+        box-shadow: 0 3px 2px vars.$color-yellow;
+        font-weight: 600;
+    }
+
+
+    &-deconnexion{
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: vars.$color-white;
+        padding: 5px;
+        margin-left: 10px;
+        border: 1px solid black;
+        border-bottom: 3px solid black;
+    }
+
+    &-deconnexion:hover{
+        box-shadow: 0 3px 2px vars.$color-yellow;
+        font-weight: 600;
+    }
+    
+    &-nav{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      &_container{
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-start;
+        margin-left: 3rem;
+      }
+
+      &_title{
+      text-decoration: none;
+      position: relative;
+      margin-right: 1.5rem;
+
+        &:after{
+          box-sizing: border-box;
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          bottom: -2px;
+          left: 0;
+          background-color: vars.$color-yellow;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover::after{
+          transform: scaleX(1);
+        }
+    }
+    }
+    
+
+};

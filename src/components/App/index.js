@@ -2,26 +2,29 @@
 import './styles.css';
 import { useState } from 'react';
 
+import { getToken, removeToken } from '../../api/auth';
+import { Routes, Route } from 'react-router-dom'
+
 // Components
-import Home from 'src/components/Home';
 import Product from 'src/components/Product';
-import Search from 'src/components/Search';
-import Results from 'src/components/Results';
-import Header from '../Header';
-import Footer from '../Footer';
-import Error from '../Error'; 
-import ProfileForm from '../ProfileForm';
-import LoginForm from '../LoginForm';
+import Home from '../Home';
+import Login from '../Login';
 import Profil from '../Profil';
-
-
+import Footer from '../Footer';
+import Apropos from '../Apropos';
+import NousContacter from '../NousContacter';
+import MentionsLegales from '../MentionsLegales';
+import Cgu from '../Cgu';
+import Error from '../Error';
 
 // == App
-function App() {
-
+const App = () => {
   const [product, setProduct] = useState(''); // select a product from option list
   const [productResult, setProductResult] = useState(''); // corresponding data to selected product
-  const [isLoggedInApp, setIsLoggedInApp] = useState(); // Initialize isLoggedInApp to Undefined.
+  const [isSearchSubmitted, setIsSearchSubmitted] = useState(false)
+  const [isResultClicked, setIsResultClicked] = useState(false)
+
+  const [isLoggedInApp, setIsLoggedInApp] = useState(''); // Initialize isLoggedInApp to Undefined.
 
   const userConnected = () => {
     setIsLoggedInApp(true) // Update isLoggedInApp in true when user connected
@@ -35,20 +38,54 @@ function App() {
   console.log(productResult);
   console.log(product);
   return (
-    <div className="app" >
-      <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
-      <Search 
-      product={product}
-      setProduct={setProduct}
-      setProductResult={setProductResult}/>
-      <Results 
-      productResult={productResult} />
+// <<<<<<< HEAD
+//     <div className="app" >
+//       <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
+//       <Search 
+//       product={product}
+//       setProduct={setProduct}
+//       setProductResult={setProductResult}/>
+//       <Results 
+//       productResult={productResult} />
       
-      <Product
-      productResult={productResult} />
+//       <Product
+//       productResult={productResult} />
+// =======
+    <div className="app">
+
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={(
+            <Home
+              product={product}
+              setProduct={setProduct}
+              productResult={productResult}
+              setProductResult={setProductResult}
+              isLogged={isLoggedInApp}
+              isConnected={userConnected}
+              isDisconnected={userDisconnected}
+              setIsSearchSubmitted={setIsSearchSubmitted}
+              isSearchSubmitted={isSearchSubmitted}
+              isResultClicked={isResultClicked}
+              setIsResultClicked={setIsResultClicked}
+            />
+        )}
+        />
+        <Route exact path="/connexion" element={<Login isLogged={isLoggedInApp} isConnected={userConnected} />} />
+        <Route exact path="/profil" element={<Profil isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/product/:id" element={<Product isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/*" element={<Error isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/mentionslegales" element={<MentionsLegales isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/apropos" element={<Apropos isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/nouscontacter" element={<NousContacter isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+        <Route exact path="/cgu" element={<Cgu isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected} />} />
+      </Routes>
+      <Footer />
     </div>
   );
-}
+};
 
 // == Export
 export default App;

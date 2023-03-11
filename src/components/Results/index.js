@@ -4,7 +4,7 @@ import "./styles.scss"
 const Results = ({productResult}) => {
   
   return (
-    <div>
+    <div className="results__div">
         <h1 className="results__title">Résultats</h1>
         <ul>
             <li className="results__card">
