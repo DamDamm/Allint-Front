@@ -33,7 +33,7 @@ const Home = ({
 );
 
 Home.propTypes = {
-  isLogged: PropTypes.bool,
+  isLogged: PropTypes.string,
   isConnected: PropTypes.func,
   isDisconnected: PropTypes.func,
 };

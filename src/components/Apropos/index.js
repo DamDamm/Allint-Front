@@ -44,7 +44,7 @@ const Apropos = ({ isLogged, isConnected, isDisconnected }) => {
 };
 
 Apropos.propTypes = {
-    isLogged: PropTypes.bool, 
+    isLogged: PropTypes.string, 
     isConnected: PropTypes.func,
     isDisconnected:PropTypes.func,
    };

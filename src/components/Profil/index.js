@@ -39,7 +39,7 @@ const Profil = ({ isLogged, isConnected, isDisconnected }) => {
 };
 
 Profil.propTypes = {
-  isLogged: PropTypes.bool,
+  isLogged: PropTypes.string,
   isConnected: PropTypes.func,
   isDisconnected: PropTypes.func,
 };
