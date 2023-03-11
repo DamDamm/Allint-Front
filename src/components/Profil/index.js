@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
 import { useNavigate } from 'react-router-dom';
-import './styles.scss';
-import ProfileForm from '../ProfileForm';
-import Header from '../Header';
 import Page from '../Page';
+import Header from '../Header';
+import ProfileForm from './ProfileForm';
 import CustomAllergyInput from './CustomAllergyInput';
+import './styles.scss';
 
 // Destructuring props to use them
 const Profil = ({ isLogged, isConnected, isDisconnected }) => {

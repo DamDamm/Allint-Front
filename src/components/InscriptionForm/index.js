@@ -11,7 +11,7 @@ import Field from './Field';
 // ---- Hooks ----
 import postDataProfile from '../../api/postDataProfile';
 
-const ProfileForm = ({ handleClick }) => {
+const InscriptionForm = ({ handleClick }) => {
   //      ___Router___
   const navigate = useNavigate();
 
@@ -70,6 +70,7 @@ const ProfileForm = ({ handleClick }) => {
 
   return (
     <div className="profil">
+      
       <h2 className="profil-title">Nouveau chez nous ? Bienvenue !</h2>
       {deleteBtnForm && (
       <button type="button" className="profil-button" onClick={showFormClick}> Inscrivez vous ! </button>
@@ -104,22 +105,18 @@ const ProfileForm = ({ handleClick }) => {
           onChange={handleChangeField}
           value={formData.password}
         />
-        {/*
-        <Allergy
-        hundleClick={handleCheckChangeOnClick}
-        /> */}
 
         <input type="submit" value="Enregistrer" className="profil-submit" />
-        {isLoading && <p>Chargement de vos informations...</p>}
-        {error && <p>{error}</p>}
+        {isLoading && (<p>Chargement de vos informations...</p>)}
+        {error && (<p>{error}</p>)}
       </form>
       )}
     </div>
   );
 };
 
-ProfileForm.propTypes = {
+InscriptionForm.propTypes = {
   handleClick: func,
 };
 
-export default ProfileForm;
+export default InscriptionForm;
