@@ -12,7 +12,7 @@ const Profil = ({isLogged}) => {
 }
 
 Profil.propTypes = {
-    isLogged: PropTypes.bool,
+    isLogged: PropTypes.string,
    };
 
 

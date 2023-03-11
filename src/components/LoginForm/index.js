@@ -81,7 +81,7 @@ const LoginForm = ({ isLogged, isConnected }) => {
 };
 
 LoginForm.propTypes = {
-  isLogged: PropTypes.bool,
+  isLogged: PropTypes.string,
   isConnected: PropTypes.func,
 };
 
