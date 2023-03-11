@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link'
 import Profil from './Profil';
 import Connexion from './Connexion';
 import Deconnexion from './Deconnexion';
+import Search from '../Search';
 
 import './styles.scss';
 import logo from '../../assets/img/logo-allint.png';
@@ -20,11 +22,11 @@ const Header = ({ isLogged, isDisconnected }) => (
           <h1 className="header-nav_title">Accueil</h1>
         </Link>
 
-        <Link to="/">
+        <NavHashLink to = "/#Search">
           <h1 className="header-nav_title">Rechercher un produit</h1>
-        </Link>
+        </NavHashLink>
 
-        <Link to="/">
+        <Link to="/apropos">
           <h1 className="header-nav_title">Allint</h1>
         </Link>
 
