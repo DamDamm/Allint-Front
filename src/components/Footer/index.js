@@ -7,19 +7,19 @@ const Footer = () => {
         <div className='footer'>
 
                 <Link to ='apropos'>
-                    <button className='footer-btns'>A propos</button>
+                    <h1 className='footer-btns'>A propos</h1>
                 </Link>
 
                 <Link to='nouscontacter'>
-                    <button className='footer-btns'>Nous contacter</button>
+                    <h1 className='footer-btns'>Nous contacter</h1>
                 </Link>
 
                 <Link to ='cgu'>
-                    <button className='footer-btns'>CGU</button>
+                    <h1 className='footer-btns'>CGU</h1>
                 </Link>
 
                 <Link to ='mentionslegales'>
-                    <button className='footer-btns'>Mentions Légales</button>
+                    <h1 className='footer-btns'>Mentions Légales</h1>
                 </Link>
 
         </div>

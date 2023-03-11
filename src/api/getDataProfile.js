@@ -1,17 +1,34 @@
 import { useState } from 'react';
 import axiosInstance from './index';
+import { getToken } from './auth';
 
 const getDataProfile = (endpoint) => {
-  const [dataGet, setDataGet] = useState('');
+  const [dataGet, setDataGet] = useState({
+    userAllergens: [],
+    defaultAllergens: [],
+    userInfos: {
+      lastName: '',
+      firstName: '',
+      email: '',
+      role_id: '', // 2 = user, 1 = admin
+    }
+  });
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const get = async (formData) => {
+  const get = async () => {
     setIsLoading(true);
     try {
-      const response = await axiosInstance.get(endpoint, formData);
+      const token = getToken();
+      console.log("endpoit:", endpoint)
+      const response = await axiosInstance.get(endpoint, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response.data)
       setDataGet(response.data);
-      console.log(response.data);
+      console.log(dataGet);
       setIsLoading(false);
     }
     catch (err) {

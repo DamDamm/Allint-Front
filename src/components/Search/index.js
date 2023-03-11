@@ -27,7 +27,7 @@ const Search = ({
   };
 
   return (
-    <div>
+    <div id='Search'>
       <form onSubmit={handleSubmit}>
         {/* <AllergyInput />
         <BrandInput />

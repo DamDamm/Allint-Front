@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+
 import getDataProfile from '../../../api/getDataProfile';
-import axios from 'axios';
 
 const ProfileForm = () => {
   const [profileData, setProfileData] = useState(null);
@@ -9,18 +9,17 @@ const ProfileForm = () => {
   const { dataGet, error, isLoading, get } = getDataProfile('/profil')
 
   useEffect(() => {
-    // Récupération des données du profil utilisateur depuis le back-end
-    axios.get('/api/profile').then((response) => {
-      setProfileData(response.data);
-    });
-  }, []);
-
+    if (dataGet) {
+      setProfileData(dataGet);
+    }
+  }, [dataGet]);
+  
   const handleSubmit = (event) => {
-    event.preventDefault();
-    // Envoyer les données modifiées du profil utilisateur au back-end
-    axios.put('/api/profile', profileData).then((response) => {
-      console.log(response.data);
-    });
+    // event.preventDefault();
+    // // Envoyer les données modifiées du profil utilisateur au back-end
+    // axios.put('/api/profile', profileData).then((response) => {
+    //   console.log(response.data);
+    // });
   };
 
   const handleInputChange = (event) => {

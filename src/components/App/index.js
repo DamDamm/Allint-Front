@@ -1,6 +1,6 @@
 // == Import
 import './styles.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { getToken, removeToken } from '../../api/auth';
 import { Routes, Route } from 'react-router-dom'
@@ -26,31 +26,26 @@ const App = () => {
 
   const [isLoggedInApp, setIsLoggedInApp] = useState(''); // Initialize isLoggedInApp to Undefined.
 
-  const userConnected = () => {
-    setIsLoggedInApp(true) // Update isLoggedInApp in true when user connected
+  const userConnected = (token) => {
+    setIsLoggedInApp(token) // Update isLoggedInApp in true when user connected
   }
 
   const userDisconnected = () => {
-    setIsLoggedInApp(false) // Update isLoggedInApp in true when user disconnected
+    setIsLoggedInApp('') // Update isLoggedInApp in true when user disconnected
+    removeToken();
   };
 
   console.log(isLoggedInApp);
-  console.log(productResult);
-  console.log(product);
+
+  useEffect(() =>{
+    const token = getToken()
+    if(!token){
+      return
+    }
+    setIsLoggedInApp(token)
+  });
+  
   return (
-// <<<<<<< HEAD
-//     <div className="app" >
-//       <Header isLogged={isLoggedInApp} isConnected={userConnected} isDisconnected={userDisconnected}/>
-//       <Search 
-//       product={product}
-//       setProduct={setProduct}
-//       setProductResult={setProductResult}/>
-//       <Results 
-//       productResult={productResult} />
-      
-//       <Product
-//       productResult={productResult} />
-// =======
     <div className="app">
 
       <Routes>
