@@ -6,18 +6,15 @@ import getDataProfile from '../../../api/getDataProfile';
 const ProfileForm = () => {
   const [profileData, setProfileData] = useState(null);
 
-  const { dataGet, error, isLoading, get } = getDataProfile('/profil')
+  const { userInfos, error, isLoading, get } = getDataProfile('/profil')
 
   useEffect(() => {
     get();
   }, []);
-
+  console.log(userInfos)
   const handleSubmit = (event) => {
-    // event.preventDefault();
-    // // Envoyer les données modifiées du profil utilisateur au back-end
-    // axios.put('/api/profile', profileData).then((response) => {
-    //   console.log(response.data);
-    // });
+    event.preventDefault();
+    };
   };
 
   const handleInputChange = (event) => {
@@ -26,7 +23,6 @@ const ProfileForm = () => {
       ...prevProfileData,
       [name]: value,
     }));
-  };
 
   if (!profileData) {
     return <p>Chargement...</p>;

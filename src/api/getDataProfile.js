@@ -4,34 +4,43 @@ import { getToken } from './auth';
 
 const getDataProfile = (endpoint) => {
   // LET MOCHE
-  let [gata, setData] = useState([]);
+  const [userInfos, setuserInfos] = useState({});
+  const [userAllergens, setuserAllergens] = useState([]);
+  const [defaultAllergens, setdefaultAllergens] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const get = async () => {
+  const get = () => {
     setIsLoading(true);
-    try {
-      const token = getToken();
-      const response = await axiosInstance.get(endpoint, {
+    const token = getToken();
+    axiosInstance
+      .get(endpoint, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      });
-      console.log(response.data);
-      // setData({ ...gata, userInfos: response.data.userInfos });
-      // MOCHE
-      gata = response.data;
-      console.log(gata);
-      setIsLoading(false);
-    }
-    catch (err) {
-      setError('Pas de chance');
-      setIsLoading(false);
-    }
+      })
+      .then(({ data }) => {
+        console.log(data.userInfos);
+        setuserInfos(data.userInfos);
+        setuserAllergens(data.userAllergens);
+        setdefaultAllergens(data.defaultAllergens);
+      })
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
+    // setData({ ...data, userInfos: response.data.userInfos });
+    // MOCHE
+    // data = response.data;
+    // console.log(data);
+    //   setIsLoading(false);
+
+    // catch (err) {
+    //   setError('Pas de chance');
+    //   setIsLoading(false);
+    // }
   };
 
   return {
-    gata, error, isLoading, get,
+    userInfos, userAllergens, defaultAllergens, error, isLoading, get,
   };
 };
 
