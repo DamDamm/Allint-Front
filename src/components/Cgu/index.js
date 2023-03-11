@@ -26,7 +26,7 @@ const Cgu = ({ isLogged, isConnected, isDisconnected }) => {
         )
     };
 Cgu.propTypes = {
-    isLogged: PropTypes.bool, 
+    isLogged: PropTypes.string, 
     isConnected: PropTypes.func,
     isDisconnected:PropTypes.func,
    };

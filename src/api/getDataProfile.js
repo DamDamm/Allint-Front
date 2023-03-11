@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axiosInstance from './index';
 import { getToken } from './auth';
 
 const getDataProfile = (endpoint) => {
-  const [data, setData] = useState([]);
+  // LET MOCHE
+  let [gata, setData] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const get = async () => {
     setIsLoading(true);
-    console.log(isLoading);
     try {
       const token = getToken();
       const response = await axiosInstance.get(endpoint, {
@@ -17,20 +17,21 @@ const getDataProfile = (endpoint) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response.data.defaultAllergens);
-      setData(response.data);
-      console.log(data);
+      console.log(response.data);
+      // setData({ ...gata, userInfos: response.data.userInfos });
+      // MOCHE
+      gata = response.data;
+      console.log(gata);
       setIsLoading(false);
-      console.log(isLoading);
     }
     catch (err) {
-      setError("Une erreur est survenue lors de l'envoi de vos données");
+      setError('Pas de chance');
       setIsLoading(false);
     }
   };
 
   return {
-    data, error, isLoading, get,
+    gata, error, isLoading, get,
   };
 };
 

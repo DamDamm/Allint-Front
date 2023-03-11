@@ -16,7 +16,7 @@ const Error = ( {isLogged, isConnected, isDisconnected} ) => {
 };
 
 Error.propTypes = {
-    isLogged: PropTypes.bool, 
+    isLogged: PropTypes.string, 
     isConnected: PropTypes.func,
     isDisconnected:PropTypes.func,
    };
