@@ -17,7 +17,7 @@ const InscriptionForm = ({ handleClick }) => {
 
   //      ___Axios___
   const {
-    data, error, isLoading, post,
+    postData, postError, postIsLoading, post,
   } = postDataProfile('/register');
 
   //      ___State___
@@ -60,17 +60,17 @@ const InscriptionForm = ({ handleClick }) => {
     post(formData);
   };
 
-  // ...Redirection to Home if data sent to server
+  // ...Redirection to Home if postData sent to server
   useEffect(() => {
     // if (islogged) ?
-    if (data) {
+    if (postData) {
       navigate('/');
     }
-  }, [data]);
+  }, [postData]);
 
   return (
     <div className="profil">
-      
+
       <h2 className="profil-title">Nouveau chez nous ? Bienvenue !</h2>
       {deleteBtnForm && (
       <button type="button" className="profil-button" onClick={showFormClick}> Inscrivez vous ! </button>
@@ -107,8 +107,8 @@ const InscriptionForm = ({ handleClick }) => {
         />
 
         <input type="submit" value="Enregistrer" className="profil-submit" />
-        {isLoading && (<p>Chargement de vos informations...</p>)}
-        {error && (<p>{error}</p>)}
+        {postIsLoading && (<p>Chargement de vos informations...</p>)}
+        {postError && (<p>{postError}</p>)}
       </form>
       )}
     </div>

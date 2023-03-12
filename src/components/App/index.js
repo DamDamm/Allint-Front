@@ -2,11 +2,11 @@
 import './styles.css';
 import { useEffect, useState } from 'react';
 
-import { getToken, removeToken } from '../../api/auth';
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
 
 // Components
 import Product from 'src/components/Product';
+import { getToken, removeToken } from '../../api/auth';
 import Home from '../Home';
 import Login from '../Login';
 import Profil from '../Profil';
@@ -21,30 +21,30 @@ import Error from '../Error';
 const App = () => {
   const [product, setProduct] = useState(''); // select a product from option list
   const [productResult, setProductResult] = useState(''); // corresponding data to selected product
-  const [isSearchSubmitted, setIsSearchSubmitted] = useState(false)
-  const [isResultClicked, setIsResultClicked] = useState(false)
+  const [isSearchSubmitted, setIsSearchSubmitted] = useState(false);
+  const [isResultClicked, setIsResultClicked] = useState(false);
 
   const [isLoggedInApp, setIsLoggedInApp] = useState(''); // Initialize isLoggedInApp to Undefined.
 
   const userConnected = (token) => {
-    setIsLoggedInApp(token) // Update isLoggedInApp in true when user connected
-  }
+    setIsLoggedInApp(token); // Update isLoggedInApp in true when user connected
+  };
 
   const userDisconnected = () => {
-    setIsLoggedInApp('') // Update isLoggedInApp in true when user disconnected
+    setIsLoggedInApp(''); // Update isLoggedInApp in true when user disconnected
     removeToken();
   };
 
   console.log(isLoggedInApp);
 
-  useEffect(() =>{
-    const token = getToken()
-    if(!token){
-      return
+  useEffect(() => {
+    const token = getToken();
+    if (!token) {
+      return;
     }
-    setIsLoggedInApp(token)
+    setIsLoggedInApp(token);
   });
-  
+
   return (
     <div className="app">
 

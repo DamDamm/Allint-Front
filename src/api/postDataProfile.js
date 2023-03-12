@@ -2,16 +2,19 @@ import { useState } from 'react';
 import axiosInstance from './index';
 
 const postDataProfile = (endpoint) => {
-  const [data, setData] = useState('');
-  const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [postData, setData] = useState('');
+  const [postError, setError] = useState('');
+  const [postIsLoading, setIsLoading] = useState(false);
 
   const post = async (formData) => {
     setIsLoading(true);
     try {
-      const response = await axiosInstance.post(endpoint, formData);
+      const response = await axiosInstance.post(endpoint, formData, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
       setData(response.data);
-      console.log(response.data);
       setIsLoading(false);
     }
     catch (err) {
@@ -21,7 +24,7 @@ const postDataProfile = (endpoint) => {
   };
 
   return {
-    data, error, isLoading, post,
+    postData, postError, postIsLoading, post,
   };
 };
 

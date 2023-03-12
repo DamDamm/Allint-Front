@@ -3,42 +3,35 @@ import axiosInstance from './index';
 import { getToken } from './auth';
 
 const getDataProfile = (endpoint) => {
-  const [dataGet, setDataGet] = useState({
-    userAllergens: [],
-    defaultAllergens: [],
-    userInfos: {
-      lastName: '',
-      firstName: '',
-      email: '',
-      role_id: '', // 2 = user, 1 = admin
-    }
-  });
+  const [userInfosData, setuserInfosData] = useState({});
+  const [userAllergensData, setuserAllergensData] = useState([]);
+  const [defaultAllergensData, setdefaultAllergensData] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const get = async () => {
     setIsLoading(true);
+    const token = getToken();
     try {
-      const token = getToken();
-      console.log("endpoit:", endpoint)
-      const response = await axiosInstance.get(endpoint, {
+      const { data } = await axiosInstance.get(endpoint, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response.data)
-      setDataGet(response.data);
-      console.log(dataGet);
+      console.log(data);
+      setuserInfosData(data.userInfos);
+      setuserAllergensData(data.userAllergens);
+      setdefaultAllergensData(data.defaultAllergens);
       setIsLoading(false);
     }
     catch (err) {
-      setError("Une erreur est survenue lors de l'envoi de vos données");
+      setError('Une erreur est survenue lors de la récupération de vos données');
       setIsLoading(false);
     }
   };
 
   return {
-    dataGet, error, isLoading, get,
+    userInfosData, userAllergensData, defaultAllergensData, error, isLoading, get,
   };
 };
 

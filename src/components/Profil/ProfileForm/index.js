@@ -1,73 +1,149 @@
 import React, { useState, useEffect } from 'react';
 
-
 import getDataProfile from '../../../api/getDataProfile';
+import patchDataProfile from '../../../api/patchDataProfile';
+import postDataAllergen from '../../../api/postDataAllergen';
 
 const ProfileForm = () => {
-  const [profileData, setProfileData] = useState(null);
+  //      ___Axios___
+  const {
+    userInfosData, userAllergensData, defaultAllergensData, error, isLoading, get,
+  } = getDataProfile('/profil');
+  const {
+    patchData, patchError, patchIsLoading, patch,
+  } = patchDataProfile('/profil');
+  const {
+    postData, postError, postIsLoading, post,
+  } = postDataAllergen('/allergy/user');
 
-  const { dataGet, error, isLoading, get } = getDataProfile('/profil')
+  //      ___State___
+  const [isEditable, setIsEditable] = useState(false);
+  const [formData, setFormData] = useState({});
+  const [userAllergens, setuserAllergens] = useState([]);
+  const [defaultAllergens, setdefaultAllergens] = useState([]);
+
+  //      ___Methods___
+  useEffect(() => {
+    get();
+  }, []);
 
   useEffect(() => {
-    if (dataGet) {
-      setProfileData(dataGet);
+    if (userInfosData) {
+      setFormData(userInfosData);
+      setuserAllergens(userAllergensData);
+      setdefaultAllergens(defaultAllergensData);
     }
-  }, [dataGet]);
-  
-  const handleSubmit = (event) => {
-    // event.preventDefault();
-    // // Envoyer les données modifiées du profil utilisateur au back-end
-    // axios.put('/api/profile', profileData).then((response) => {
-    //   console.log(response.data);
-    // });
-  };
+  }, [userInfosData]);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setProfileData((prevProfileData) => ({
-      ...prevProfileData,
-      [name]: value,
-    }));
-  };
-
-  if (!profileData) {
+  if (isLoading) {
     return <p>Chargement...</p>;
   }
 
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  console.log(userAllergens);
+
+  const handleEditForm = (event) => {
+    event.preventDefault();
+    setIsEditable(true);
+  };
+
+  const handleInputChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const handleSaveForm = (event) => {
+    event.preventDefault();
+    patch(formData);
+    console.log(patchData);
+    setIsEditable(false);
+  };
+
+  const handleAllergenChange = (event) => {
+    const allergenId = parseInt(event.target.value);
+    const isChecked = event.target.checked;
+
+    if (isChecked) {
+      setuserAllergens([...userAllergens, allergenId]);
+      post(allergenId);
+    }
+    else {
+      const updatedAllergens = userAllergens.filter((id) => id !== allergenId);
+      setuserAllergens(updatedAllergens);
+    }
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="firstName">
-        Prénom :
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={profileData.firstName}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label htmlFor="lastName">
-        Nom :
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          value={profileData.lastName}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label htmlFor="email">
-        Adresse email :
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={profileData.email}
-          onChange={handleInputChange}
-        />
-      </label>
-      <button type="submit">Enregistrer</button>
-    </form>
+    <div>
+
+      <form>
+        <label htmlFor="firstname">
+          Prénom :
+          {isEditable ? (
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              placeholder={formData.firstname}
+              onChange={handleInputChange}
+            />
+          ) : (
+            <span>{formData.firstname}</span>
+          )}
+        </label>
+        <label htmlFor="lastname">
+          Nom :
+          {isEditable ? (
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              placeholder={formData.lastname}
+              onChange={handleInputChange}
+            />
+          ) : (
+            <span>{formData.lastname}</span>
+          )}
+        </label>
+        <label htmlFor="email">
+          Adresse email :
+          {isEditable ? (
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder={formData.email}
+              onChange={handleInputChange}
+            />
+          ) : (
+            <span>{formData.email}</span>
+          )}
+        </label>
+        {isEditable ? (
+          <button type="submit" onClick={handleSaveForm}>Enregistrer</button>
+        ) : (
+          <button type="button" onClick={handleEditForm}>Modifier</button>
+        )}
+      </form>
+
+      <label>Liste d'allergènes par défaut:</label>
+      <div>
+        {defaultAllergens.map((allergen) => (
+          <label key={allergen.id}>
+            <input
+              type="checkbox"
+              name={allergen.name}
+              value={allergen.id}
+              onChange={handleAllergenChange}
+            />
+            {allergen.name}
+          </label>
+        ))}
+      </div>
+    </div>
+
   );
 };
 

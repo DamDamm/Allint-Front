@@ -1,11 +1,9 @@
 import './styles.scss';
-import { getApi, setToken } from '../../api/auth';
 
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import usersData from 'src/data/MOCK_users.json';
+import { getApi, setToken } from '../../api/auth';
 
 const LoginForm = ({ isLogged, isConnected }) => {
   const navigate = useNavigate();
@@ -27,21 +25,24 @@ const LoginForm = ({ isLogged, isConnected }) => {
 
   // Function when submit form
   const handleSubmit = async (event) => {
-
     event.preventDefault();
-    if (!login || !password){
+    if (!login || !password) {
       console.log('Les deux champs sont requis');
-      return
+      return;
     }
     const result = await getApi().post('/login', {
       email: login,
       password: password,
+    }, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     });
-    const token = result.data
-    console.log(token)
+    const token = result.data;
+    console.log(token);
     setToken(token);
     isConnected(token);
-    navigate('/')
+    navigate('/');
   };
 
   const connected = isLogged; // Stock the authentication props in a variable
