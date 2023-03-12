@@ -3,7 +3,7 @@ import { NavHashLink } from 'react-router-hash-link';
 import Profil from './Profil';
 import Connexion from './Connexion';
 import Deconnexion from './Deconnexion';
-import Search from '../Search';
+
 
 import './styles.scss';
 import logo from '../../assets/img/logo-allint.png';
@@ -13,14 +13,14 @@ const Header = ({ isLogged, isDisconnected }) => (
   <header className="header">
 
     <div className="header-nav">
-      <Link to="/">
+      <NavHashLink to = "/#Intro">
         <img src={logo} className="header-img" />
-      </Link>
+      </NavHashLink>
 
       <div className="header-nav_container">
-        <Link to="/">
+        <NavHashLink to = "/#Intro">
           <h1 className="header-nav_title">Accueil</h1>
-        </Link>
+        </NavHashLink>
 
         <NavHashLink to = "/#Search">
           <h1 className="header-nav_title">Rechercher un produit</h1>

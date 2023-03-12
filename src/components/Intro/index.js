@@ -10,7 +10,7 @@ const Introduction = () => {
   };
 
   return (
-    <div className="app">
+    <div className="app" id="Intro">
       <div className="introduction__container">
         <div className="introduction__container-catch">
           <h2 className="introduction__catch-title">Allint, l'application qui vous fait gagner du temps.</h2>
