@@ -1,0 +1,32 @@
+@use '../../styles/vars';
+
+.results{
+  &__title{
+    background-color: #ffcd00;
+    padding: 1em;
+  }
+  &__card{
+    height: 100px;
+    background-color: #efeae4;
+    border: 10px;
+    border-radius: 8px;
+    border-color: white;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1em;
+    transition: 1s background-color;
+    &-img{
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+    &:hover{
+      background-color: #ccc7c2;
+      transition: 0.5s;
+    }
+  }
+}

@@ -1,12 +1,15 @@
 @use 'src/styles/_vars.scss';
 
 .header{
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin:0 10px 10px 10px;
     height: 100px;
     font-weight: 600;
+    background-color: vars.$color-grey;
 
     &-img{
       height: 100px;

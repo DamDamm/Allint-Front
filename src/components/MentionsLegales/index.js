@@ -22,9 +22,9 @@ const MentionsLegales = ({ isLogged, isConnected, isDisconnected }) => {
 };
 
 MentionsLegales.propTypes = {
-  isLogged: PropTypes.bool,
-  isConnected: PropTypes.bool,
-  isDisconnected: PropTypes.bool,
+  isLogged: PropTypes.string,
+  isConnected: PropTypes.func,
+  isDisconnected: PropTypes.func,
 };
 
 export default MentionsLegales;
