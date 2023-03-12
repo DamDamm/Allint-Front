@@ -33,6 +33,10 @@ const LoginForm = ({ isLogged, isConnected }) => {
     const result = await getApi().post('/login', {
       email: login,
       password: password,
+    }, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     });
     const token = result.data;
     console.log(token);
