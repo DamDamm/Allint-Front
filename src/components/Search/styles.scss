@@ -1,23 +1,33 @@
 @use '../../styles/vars';
 
-.search__form {
-display : flex;
-flex-direction : column;
-width: 90%;
-margin: auto;
-&-button {
-  padding: 1em;
-}
-&_product{
-  display: flex;
-  flex-direction: column;
-  &-select{
+.search{
+  width: 70vw;
+  margin: auto;
+
+  &__form {
+  display : flex;
+  flex-direction : column;
+  width: 90%;
+  margin: auto;
+  &-button {
     padding: 1em;
   }
-}
+  &_product{
+    display: flex;
+    flex-direction: column;
+    &-select{
+      padding: 1em;
+    }
+  }
+  }
+
+  .search_product_input {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.search_product_input {
-  display: flex;
-  flex-direction: column;
+.search-product__title{
+  font-size: 3vw;
+  margin-bottom: 20px;
 }

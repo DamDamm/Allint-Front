@@ -4,7 +4,6 @@ import Profil from './Profil';
 import Connexion from './Connexion';
 import Deconnexion from './Deconnexion';
 
-
 import './styles.scss';
 import logo from '../../assets/img/logo-allint.png';
 
@@ -13,16 +12,16 @@ const Header = ({ isLogged, isDisconnected }) => (
   <header className="header">
 
     <div className="header-nav">
-      <NavHashLink to = "/#Intro">
+      <NavHashLink to="/#Intro">
         <img src={logo} className="header-img" />
       </NavHashLink>
 
       <div className="header-nav_container">
-        <NavHashLink to = "/#Intro">
+        <NavHashLink to="/#Intro">
           <h1 className="header-nav_title">Accueil</h1>
         </NavHashLink>
 
-        <NavHashLink to = "/#Search">
+        <NavHashLink to="/#Search">
           <h1 className="header-nav_title">Rechercher un produit</h1>
         </NavHashLink>
 
@@ -34,9 +33,6 @@ const Header = ({ isLogged, isDisconnected }) => (
     </div>
     <div className="header-btns">
       <Profil isLogged={isLogged} /* We pass the props in Connexion element *//>
-      {/* <Connexion   /> */}
-      {/* <Deconnexion isDisconnected={isDisconnected}/> */}
-
       {isLogged ? <Deconnexion isDisconnected={isDisconnected} /> : <Connexion />}
     </div>
   </header>

@@ -1,5 +1,5 @@
 // == Import
-import './styles.css';
+import './styles.scss';
 import { useEffect, useState } from 'react';
 
 import { Routes, Route } from 'react-router-dom';

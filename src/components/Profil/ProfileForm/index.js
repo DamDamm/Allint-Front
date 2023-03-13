@@ -63,6 +63,10 @@ const ProfileForm = () => {
     setIsEditable(false);
   };
 
+  const userHadChecked = () => {
+
+  };
+
   const handleAllergenChange = (event) => {
     const allergenId = parseInt(event.target.value);
     const isChecked = event.target.checked;
@@ -172,6 +176,7 @@ const ProfileForm = () => {
               type="checkbox"
               name={allergen.name}
               value={allergen.id}
+              checked={userAllergensData.includes(allergen.id)}
               onChange={handleAllergenChange}
             />
             {allergen.name}
