@@ -75,7 +75,7 @@ const ProfileForm = () => {
       setuserAllergens([...userAllergens, allergenId]);
       post(userAllergens);
       console.log(userAllergens);
-      setuserAllergens({});
+      // setuserAllergens({});
     }
     else {
       const updatedAllergens = userAllergens.filter((id) => id !== allergenId);
@@ -176,7 +176,7 @@ const ProfileForm = () => {
               type="checkbox"
               name={allergen.name}
               value={allergen.id}
-              checked={userAllergensData.includes(allergen.id)}
+              // checked={userAllergensData.includes(allergen.id)}
               onChange={handleAllergenChange}
             />
             {allergen.name}
