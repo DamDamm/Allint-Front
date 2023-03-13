@@ -1,9 +1,11 @@
 @use 'src/styles/_vars.scss';
 
 .login{
-    width: 100%;
+    width: 70vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin: 30px auto;
     align-items: center;
 
     &-title{
@@ -17,18 +19,19 @@
     &-form{
         display: flex;
         flex-direction:row;
+        align-items: center;
         justify-content: space-between;
         margin: 0 10px 0 10px;
-        width: 50%;
+
     }
 
     &-input{
-        width: 300px;
+        width: 220.46px;
+        height: 40px;
         font-size: 15px;
         height: 30px;
-        margin-top: 20px; 
+        margin: 20px 10px 0 5px; 
         background-color: vars.$color-grey;
-        resize: both;
     }
 
     &-submit-div{
@@ -39,10 +42,9 @@
 
     &-submit{
       width: 220.46px;
+      height: 30px;
       background-color: vars.$color-yellow;
       color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
       border: none;
       border-radius: 4px;
       cursor: pointer;
