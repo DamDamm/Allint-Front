@@ -1,5 +1,6 @@
 import { string, func } from 'prop-types';
-import '../styles.scss'
+import '../styles.scss';
+import TextField from '@mui/material/TextField';
 
 const Field = ({
   value,
@@ -12,7 +13,9 @@ const Field = ({
 
   return (
     <div className="profil-field">
-      <input
+      <TextField
+        variant="standard"
+        label={placeholder}
         value={value}
         onChange={onChange}
         id={inputId}

@@ -49,7 +49,7 @@ const LoginForm = ({ isLogged, isConnected }) => {
 
   return (
     <div className="login">
-      <h2 className="login-title"> On s'est pas déjà vu ? </h2>
+      <h2 className="login-title"> On s'est pas déjà vu ?</h2>
 
       {!connected && (
       <form className="login-form" onSubmit={handleSubmit}>

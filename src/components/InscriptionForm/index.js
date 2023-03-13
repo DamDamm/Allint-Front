@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { func } from 'prop-types';
 import './styles.scss';
+import Box from '@mui/material/Box';
 
 //  ---- Components ----
 import Field from './Field';
@@ -71,12 +72,21 @@ const InscriptionForm = ({ handleClick }) => {
   return (
     <div className="profil">
 
-      <h2 className="profil-title">Nouveau chez nous ? Bienvenue !</h2>
+      <h2 className="profil-title">Nouveau chez nous ? Bienvenue 🤙!</h2>
       {deleteBtnForm && (
       <button type="button" className="profil-button" onClick={showFormClick}> Inscrivez vous ! </button>
       )}
       {showForm && (
-      <form className="profil-form" onSubmit={handleSubmitClick}>
+      <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+        className="profil-form"
+        onSubmit={handleSubmitClick}
+      >
         <Field
           name="firstname"
           type="firstname"
@@ -106,10 +116,10 @@ const InscriptionForm = ({ handleClick }) => {
           value={formData.password}
         />
 
-        <input type="submit" value="Enregistrer" className="profil-submit" />
+        <input type="submit" value="Et hop, ça part au four !" className="profil-submit" />
         {postIsLoading && (<p>Chargement de vos informations...</p>)}
         {postError && (<p>{postError}</p>)}
-      </form>
+      </Box>
       )}
     </div>
   );
