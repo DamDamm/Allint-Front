@@ -11,13 +11,11 @@ import './styles.scss';
 const Profil = ({ isLogged, isConnected, isDisconnected }) => {
   const navigate = useNavigate();
 
-  /* const handleSubmitClick = (event) => {
-
+  const handleSubmitClick = (event) => {
     event.preventDefault();
     navigate('/');
-    console.log(event);
     // Fonction d'envoi des données au BACKEND (POST ou UPDATE)
-  }; */
+  };
 
   const connected = isLogged;
 
@@ -26,9 +24,13 @@ const Profil = ({ isLogged, isConnected, isDisconnected }) => {
     <Page>
       <Header isLogged={isLogged} isConnected={isConnected} isDisconnected={isDisconnected} />
       {connected ? (
-        <div>
+        <div className="profile__container">
           <ProfileForm />
           <CustomAllergyInput />
+          <div className="action-button">
+            <button className="action-button__delete" disabled type="submit">Supprimer votre joli profil</button>
+            <button className="action-button__save" type="submit" onClick={handleSubmitClick}>Enregistrer tout ça</button>
+          </div>
         </div>
       ) : (
         <p>Veuillez vous connecter afin d'acceder à votre profil</p>

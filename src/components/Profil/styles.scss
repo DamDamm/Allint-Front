@@ -1,0 +1,199 @@
+@use 'src/styles/_vars.scss';
+
+.profile{
+  &__container{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    margin: 20px auto;
+  }
+  &-form{
+    &__container{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__form{
+      display: flex;
+      flex-direction: column;
+      border-radius: 5px;
+      background-color: vars.$color-grey;
+      margin: 20px;
+      padding: 20px;
+
+    }
+  }
+}
+
+.user{
+  &-information{
+    &__input{
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  }
+  &-form-button{
+    width: 220.46px;
+    background-color: vars.$color-yellow;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #e6e633;
+    }
+  }
+}
+
+.user-allergies{
+  &__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;
+    width: 50vw;
+    background-color: vars.$color-grey;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+  }
+
+  &__title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  &__list{
+    margin-top: 5px;
+  }
+}
+
+// .right__container{
+//   margin: 20px;
+
+// }
+
+.pageTitle {
+  text-align: center;
+  width: 220.46px;
+  margin: 20px;
+  padding: 20px;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.custom-allergies{
+  &__container{
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    background-color: vars.$color-grey;
+    margin: 20px;
+    padding: 20px;
+  }
+
+  &__form{
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    justify-content: space-around;
+  }
+
+  &__title{
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  &__list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    padding-left: 10px;
+  }
+
+  &__item{
+    margin: 0 10px;
+
+    &:hover{
+      text-decoration: line-through;
+    }
+  }
+
+  &__add-button{
+    background-color: vars.$color-yellow;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #e6e633;
+    }
+  }
+
+  &__remove-button{
+    background-color: vars.$color-red;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: bold;
+
+    &:hover {
+      background-color: #d30404;
+      
+      
+    }
+  }
+}
+
+.action-button{
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  &__delete{
+    width: 220.46px;
+    background-color: vars.$color-yellow;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: vars.$color-red;
+    }
+  }
+
+  &__save{
+    width: 220.46px;
+    background-color: vars.$color-yellow;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: vars.$color-green;
+    }
+  }
+}
