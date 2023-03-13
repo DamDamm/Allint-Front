@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const CustomAllergyInput = () => {
   const [allergies, setAllergies] = useState([]);
@@ -35,29 +37,31 @@ const CustomAllergyInput = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleAddAllergy}>
-        <label htmlFor="allergy-input">Ajouter d'autres allergies</label>
-        <input
+    <Box className="custom-allergies__container">
+      <form className="custom-allergies__form" onSubmit={handleAddAllergy}>
+        <label className="custom-allergies__title" htmlFor="allergy-input">On en a oublié une?</label>
+        <TextField
+          label="Ajouter une allergie"
+          variant="standard"
           type="text"
           id="allergy-input"
           name="allergy"
           value={inputValue}
           onChange={handleInputChange}
         />
-        <button type="submit" disabled={isButtonDisabled}>
-          +
+        <button className="custom-allergies__add-button" type="submit" disabled={isButtonDisabled}>
+          Ajouter
         </button>
       </form>
-      <ul>
+      <ul className="custom-allergies__list">
         {allergies.map((allergy) => (
-          <li key={allergy.id}>
+          <li className="custom-allergies__item" key={allergy.id}>
             {allergy.name}
-            <button type="button" onClick={() => handleDeleteAllergy(allergy.id)}>X</button>
+            <button className="custom-allergies__remove-button" type="button" onClick={() => handleDeleteAllergy(allergy.id)}>x</button>
           </li>
         ))}
       </ul>
-    </div>
+    </Box>
   );
 
   //   const regInput = React.useRef();

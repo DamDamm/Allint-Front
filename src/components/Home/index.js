@@ -11,26 +11,28 @@ import Product from '../Product';
 
 // Destructuring props to use them
 const Home = ({
-  product, setProduct, productResult, setProductResult, isLogged, isConnected, isDisconnected,setIsSearchSubmitted,isSearchSubmitted,isResultClicked,setIsResultClicked
+  product, setProduct, productResult, setProductResult, isLogged, isConnected, isDisconnected, setIsSearchSubmitted, isSearchSubmitted, isResultClicked, setIsResultClicked,
 }) => (
   <Page>
     <Header isLogged={isLogged} isDisconnected={isDisconnected} />
     <div>
       <Introduction />
-      <Search
-        product={product}
-        setProduct={setProduct}
-        productResult={productResult}
-        setProductResult={setProductResult}
-        setIsSearchSubmitted={setIsSearchSubmitted}
-        setIsResultClicked={setIsResultClicked}
-      />
-      {!isSearchSubmitted
+      <div className="main-bottom__container">
+        <Search
+          product={product}
+          setProduct={setProduct}
+          productResult={productResult}
+          setProductResult={setProductResult}
+          setIsSearchSubmitted={setIsSearchSubmitted}
+          setIsResultClicked={setIsResultClicked}
+        />
+        {!isSearchSubmitted
       && (
       <div className="waiting_cart" />
       )}
-      {isSearchSubmitted && <Result productResult={productResult} />}
-      {isResultClicked && <Product productResult={productResult} />}
+        {isSearchSubmitted && <Result productResult={productResult} />}
+        {/* {isResultClicked && <Product productResult={productResult} />} */}
+      </div>
 
     </div>
   </Page>

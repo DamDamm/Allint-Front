@@ -6,7 +6,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin:0 10px 10px 10px;
     height: 100px;
     font-weight: 600;
     background-color: vars.$color-grey;
@@ -21,50 +20,31 @@
         align-items: center;
     }
 
-    &-connexion{
-        font-size: 15px;
-        border-radius: 5px;
-        background-color: vars.$color-white;
-        padding: 5px;
-        margin-right: 10px;
-        border: 1px solid black;
-        border-bottom: 3px solid black;
+    &-connexion:hover{
+      background-color: #bba602;
     }
 
-    &-connexion:hover{
-        box-shadow: 0 3px 2px vars.$color-yellow;
-        font-weight: 600;
-    }
 
 
     &-profil{
-        font-size: 15px;
-        border-radius: 5px;
-        background-color: vars.$color-white;
-        padding: 5px;
-        border: 1px solid black;
-        border-bottom: 3px solid black;
-    }
+      width: auto;
+      border-radius: 30px 0 0 30px;
+      margin-right: 1px;
 
-    &-profil:hover{
-        box-shadow: 0 3px 2px vars.$color-yellow;
-        font-weight: 600;
+      &:hover{
+        background-color: vars.$color-blue;
+      }
     }
 
 
     &-deconnexion{
-        font-size: 15px;
-        border-radius: 5px;
-        background-color: vars.$color-white;
-        padding: 5px;
-        margin-left: 10px;
-        border: 1px solid black;
-        border-bottom: 3px solid black;
-    }
+      width: auto;
+      border-radius: 0 30px 30px 0;
+      margin-left: 1px;
 
-    &-deconnexion:hover{
-        box-shadow: 0 3px 2px vars.$color-yellow;
-        font-weight: 600;
+      &:hover{
+        background-color: vars.$color-red;
+      }
     }
     
     &-nav{

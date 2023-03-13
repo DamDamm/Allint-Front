@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 import getDataProfile from '../../../api/getDataProfile';
 import patchDataProfile from '../../../api/patchDataProfile';
@@ -19,7 +21,7 @@ const ProfileForm = () => {
   //      ___State___
   const [isEditable, setIsEditable] = useState(false);
   const [formData, setFormData] = useState({});
-  const [userAllergens, setuserAllergens] = useState([]);
+  const [userAllergens, setuserAllergens] = useState({});
   const [defaultAllergens, setdefaultAllergens] = useState([]);
 
   //      ___Methods___
@@ -61,13 +63,19 @@ const ProfileForm = () => {
     setIsEditable(false);
   };
 
+  const userHadChecked = () => {
+
+  };
+
   const handleAllergenChange = (event) => {
     const allergenId = parseInt(event.target.value);
     const isChecked = event.target.checked;
 
     if (isChecked) {
       setuserAllergens([...userAllergens, allergenId]);
-      post(allergenId);
+      post(userAllergens);
+      console.log(userAllergens);
+      setuserAllergens({});
     }
     else {
       const updatedAllergens = userAllergens.filter((id) => id !== allergenId);
@@ -76,41 +84,67 @@ const ProfileForm = () => {
   };
 
   return (
-    <div>
-
-      <form>
-        <label htmlFor="firstname">
-          Prénom :
+    <div className="profile-form__container">
+      <div className="right__container">
+        <h1 className="pageTitle">
+          Votre (super) Profil
+        </h1>
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+          className="profile-form__form"
+        >
           {isEditable ? (
-            <input
-              type="text"
+            <TextField
+              label="Prénom"
+              variant="standard"
+              defaultValue={formData.firstname}
+              type="firstName"
               id="firstname"
               name="firstname"
               placeholder={formData.firstname}
               onChange={handleInputChange}
             />
           ) : (
-            <span>{formData.firstname}</span>
+            <TextField
+              disabled
+              id="standard-disabled"
+              label={formData.firstname}
+              defaultValue={formData.firstname}
+              variant="standard"
+              placeholder={formData.firstname}
+            />
           )}
-        </label>
-        <label htmlFor="lastname">
-          Nom :
           {isEditable ? (
-            <input
-              type="text"
+            <TextField
+              label="Nom"
+              variant="standard"
+              defaultValue={formData.lastname}
+              type="lastName"
               id="lastname"
               name="lastname"
               placeholder={formData.lastname}
               onChange={handleInputChange}
             />
           ) : (
-            <span>{formData.lastname}</span>
+            <TextField
+              disabled
+              id="standard-disabled"
+              label={formData.lastname}
+              defaultValue={formData.lastname}
+              variant="standard"
+              placeholder={formData.lastname}
+            />
           )}
-        </label>
-        <label htmlFor="email">
-          Adresse email :
           {isEditable ? (
-            <input
+            <TextField
+              label="email"
+              variant="standard"
+              defaultValue={formData.email}
               type="email"
               id="email"
               name="email"
@@ -118,24 +152,31 @@ const ProfileForm = () => {
               onChange={handleInputChange}
             />
           ) : (
-            <span>{formData.email}</span>
+            <TextField
+              disabled
+              label={formData.email}
+              id="standard-disabled"
+              variant="standard"
+            />
           )}
-        </label>
-        {isEditable ? (
-          <button type="submit" onClick={handleSaveForm}>Enregistrer</button>
-        ) : (
-          <button type="button" onClick={handleEditForm}>Modifier</button>
-        )}
-      </form>
+          {isEditable ? (
+            <button className="user-form-button" type="submit" onClick={handleSaveForm}>Enregistrer</button>
+          ) : (
+            <button className="user-form-button" type="button" onClick={handleEditForm}>Modifier</button>
+          )}
+        </Box>
+      </div>
 
-      <label>Liste d'allergènes par défaut:</label>
-      <div>
+      <div className="user-allergies__container">
+        <label className="user-allergies__title">Choisissez votre Kryptonite</label>
         {defaultAllergens.map((allergen) => (
-          <label key={allergen.id}>
+          <label className="user-allergies__list" key={allergen.id}>
             <input
+              className="user-allergies__input"
               type="checkbox"
               name={allergen.name}
               value={allergen.id}
+              checked={userAllergensData.includes(allergen.id)}
               onChange={handleAllergenChange}
             />
             {allergen.name}

@@ -1,6 +1,6 @@
 // == Import
 import React from 'react';
-import "./styles.scss"
+import './styles.scss';
 
 import productsData from '../../data/MOCK_products.json';
 
@@ -13,7 +13,7 @@ import ProductInput from './ProductInput';
 // import CategoryInput from "./CategoryInput";
 
 const Search = ({
-  product, setProduct, productResult, setProductResult,setIsSearchSubmitted,setIsResultClicked
+  product, setProduct, productResult, setProductResult, setIsSearchSubmitted, setIsResultClicked,
 }) => {
   const handleChange = (event) => {
     setProduct(event.target.value); // set state to selected product
@@ -27,7 +27,7 @@ const Search = ({
   };
 
   return (
-    <div id='Search'>
+    <div className="search">
       <form onSubmit={handleSubmit}>
         {/* <AllergyInput />
         <BrandInput />
