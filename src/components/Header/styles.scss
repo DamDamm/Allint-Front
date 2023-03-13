@@ -3,10 +3,10 @@
 .header{
     position: sticky;
     top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin:0 10px 10px 10px;
     height: 100px;
     font-weight: 600;
     background-color: vars.$color-grey;
@@ -98,12 +98,28 @@
           transform-origin: left;
           transition: transform 0.3s ease;
         }
+      
 
         &:hover::after{
           transform: scaleX(1);
         }
+
     }
+  }
+ 
+    @media screen and (max-width: 767px){
+      .header{
+      
+      
+      &-btns{
+          display: flex;
+
+      }
     }
+
+  }
+  
+   
     
 
 };
